@@ -219,6 +219,9 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     // MARK: - Already configured network requests to perform the change on the service
     
     private func internalGet() -> AnyCancellable {
+        #if DEBUG
+        print("GET on \(service.urlComponents.url)")
+        #endif
         return service.networkHandler.get(on: service.urlComponents.url ?? service.url)
             .receive(on: RunLoop.main)
             .replaceError(with: [])
