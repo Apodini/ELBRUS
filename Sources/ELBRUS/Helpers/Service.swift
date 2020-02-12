@@ -42,7 +42,7 @@ public class Service<N: NetworkHandler> {
     }
 }
 
-
+/// JSONService provides a initialisation of a Service with a URLSessionNetworkHandler
 public class JSONService: Service<URLSessionJSONNetworkHandler> {
     public init (url: URL) {
         super.init(url: url, networkHandler: URLSessionJSONNetworkHandler())
