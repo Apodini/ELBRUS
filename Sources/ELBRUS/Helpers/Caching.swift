@@ -19,9 +19,9 @@ import Combine
         return documentsDirectory.appendingPathComponent(storagePath).appendingPathExtension("json")
     }
     
-    private var storagePath: String = ""
+    private var storagePath: String
     
-    init(storagePath: String) {
+    public init(storagePath: String) {
         self.storagePath = storagePath
     }
     
