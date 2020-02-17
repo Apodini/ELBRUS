@@ -32,6 +32,7 @@ extension Fail: Error {}
 class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
     let encoder = TestEncoder()
     let decoder = TestDecoder()
+    let authorization: Authorization = .none
     
     var mockNetworkCalls: [MockNetworkCall<Element>]
     
