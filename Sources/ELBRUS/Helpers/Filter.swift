@@ -22,7 +22,7 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
     /// The serverStrategyApplied variable indicates wether the server strategy is already added to the URLComponent
     public class Filter<K: RESTElement, V: Filterable> {
         let operations: [Operation<K, V>]
-        public var applied = false
+        var applied = false
         
         enum Operation<K, V> {
             case lte(WritableKeyPath<K, V>, V)
