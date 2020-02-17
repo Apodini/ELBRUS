@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LocalFileStorable Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/LocalFileStorable" class="dashAnchor"></a>
+    <a title="LocalFileStorable Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (35% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        LocalFileStorable Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/JSONService.html">JSONService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/REST.html">REST</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Service.html">Service</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/URLSessionJSONNetworkHandler.html">URLSessionJSONNetworkHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/URLSessionNetworkHandler.html">URLSessionNetworkHandler</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Authorization.html">Authorization</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FilterStrategy.html">FilterStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FilterStrategy.html#/s:6ELBRUS14FilterStrategyO0B0C">– Filter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PasswordType.html">PasswordType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SortStrategy.html">SortStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SortStrategy.html#/s:6ELBRUS12SortStrategyO6SorterC">– Sorter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TokenType.html">TokenType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Never.html">Never</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:6ELBRUS27defaultFilterServerStrategyy10Foundation12URLQueryItemVSS_S2StF">defaultFilterServerStrategy(_:_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:6ELBRUS25defaultSortServerStrategyy10Foundation12URLQueryItemVSS_SStF">defaultSortServerStrategy(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LocalFileStorable.html">LocalFileStorable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkHandler.html">NetworkHandler</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Credentials.html">Credentials</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6ELBRUS11RESTElementa">RESTElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LocalFileStorable</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LocalFileStorable</span></code></pre>
+
+                </div>
+              </div>
+            <p>An object that can be represented and stored as a local file</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS17LocalFileStorableP7ElementQa"></a>
+                    <a name="//apple_ref/swift/Alias/Element" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS17LocalFileStorableP7ElementQa">Element</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Reflectable</span><span class="p">,</span> <span class="kt">Comparable</span><span class="p">,</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">Identifiable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS17LocalFileStorableP12wrappedValueSay7ElementQzGvp"></a>
+                    <a name="//apple_ref/swift/Property/wrappedValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS17LocalFileStorableP12wrappedValueSay7ElementQzGvp">wrappedValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">wrappedValue</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LocalFileStorable.html#/s:6ELBRUS17LocalFileStorableP7ElementQa">Element</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS17LocalFileStorableP11storagePathSSvp"></a>
+                    <a name="//apple_ref/swift/Property/storagePath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS17LocalFileStorableP11storagePathSSvp">storagePath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">storagePath</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Extension:%20LocalFileStorable:%20URL"></a>
+                <a name="//apple_ref/swift/Section/Extension: LocalFileStorable: URL" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Extension:%20LocalFileStorable:%20URL"></a>
+                  <h3 class="section-name"><p>Extension: LocalFileStorable: URL</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS17LocalFileStorablePAAE15localStorageURL10Foundation0G0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/localStorageURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS17LocalFileStorablePAAE15localStorageURL10Foundation0G0Vvp">localStorageURL</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The URL of the parent folder to store the LocalFileStorable in</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">localStorageURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Extension:%20LocalFileStorable:%20Load%20&amp;%20Save"></a>
+                <a name="//apple_ref/swift/Section/Extension: LocalFileStorable: Load &amp; Save" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Extension:%20LocalFileStorable:%20Load%20&amp;%20Save"></a>
+                  <h3 class="section-name"><p>Extension: LocalFileStorable: Load &amp; Save</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS17LocalFileStorablePAAE08loadFromC0Say7ElementQzGyF"></a>
+                    <a name="//apple_ref/swift/Method/loadFromFile()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS17LocalFileStorablePAAE08loadFromC0Say7ElementQzGyF">loadFromFile()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Load an array of LocalFileStorables from a file</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadFromFile</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LocalFileStorable.html#/s:6ELBRUS17LocalFileStorableP7ElementQa">Element</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of deserialised objects</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS17LocalFileStorablePAAE06saveToC0yySay7ElementQzGF"></a>
+                    <a name="//apple_ref/swift/Method/saveToFile(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS17LocalFileStorablePAAE06saveToC0yySay7ElementQzGF">saveToFile(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Save a collection of LocalFileStorables to a file</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">saveToFile</span><span class="p">(</span><span class="n">_</span> <span class="nv">collection</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LocalFileStorable.html#/s:6ELBRUS17LocalFileStorableP7ElementQa">Element</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>collection</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Collection of objects to be saved</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
