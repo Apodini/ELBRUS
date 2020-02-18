@@ -16,6 +16,12 @@ public typealias Filterable = Comparable & Reflectable & ReflectionDecodable & C
 public typealias Sortable = Comparable & Reflectable & ReflectionDecodable & CustomStringConvertible & Codable
 
 // MARK: - propertyWrapper @REST
+/// The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified server endpoint in the `Service` variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialisation.
+/// - Paramaters:
+///     - Element: specifies the type of the data structure that needs to be observed, it confirms to `RESTElement` which ensures that the data structure supports the needed functionality
+///     - F: specifies the type of the data structure where a filter is applied on,  it confirms to `Filterable` which ensures that the data structure supports the needed functionality
+///     - S: specifies the type of the data strucutre that will be sorted,  it confirms to `Sortable` which ensures that the data structure supports the needed functionality
+///     - ID: specifies the type of the ID from the`Element`
 @propertyWrapper public class REST
     <Element: RESTElement,
     N: NetworkHandler,
@@ -45,9 +51,11 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     
     private var publisher: CurrentValueSubject<[Element], Never>
     
+    /// storagePath specifies the appendix of the storage location in the caching process.
     public var storagePath: String = ""
     
     // MARK: - init
+    /// `init` is used for the configuration of the wanted functionality, to specifiy the server endpoint with the network service and optional filtering, sorting and cahcing.
     public init(_ service: Service<N>,
                 filterStrategy: FilterStrategy<Element, F>,
                 sortStrategy: SortStrategy<Element, S>,
@@ -83,6 +91,7 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     }
     
     // MARK: - wrappedValue
+    /// The wrappedValue is the observed data structure and represents the connected data. This data will be synchronized with the server endpoint.
     public var wrappedValue: [Element] {
         get { _wrappedValue }
         set {

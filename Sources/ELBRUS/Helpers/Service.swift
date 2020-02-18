@@ -17,6 +17,7 @@ public class Service<N: NetworkHandler> {
     var filterServerStrategy: ((String, String, String) -> URLQueryItem)?
     var sortServerStrategy: ((String, String) -> URLQueryItem)?
     
+    /// With the `init` of the `Service` specifies an user the REST endpoint address through an URL. He defines also the `NetworkHandler` that is used for the network communication. The user has the possibility to set a global filter and/or sort strategy on the server-side with specifying a function for the translation of the strategy to an `URLQueryItem`.
     public init(url: URL,
                 networkHandler: N,
                 filterServerStrategy: ((String, String, String) -> URLQueryItem)? = nil,
@@ -42,8 +43,9 @@ public class Service<N: NetworkHandler> {
     }
 }
 
-/// JSONService provides a initialisation of a Service with a URLSessionNetworkHandler
+/// JSONService provides an initialisation of a `Service` with a `URLSessionJSONNetworkHandler` that uses JSON as encoding and decoding strategy
 public class JSONService: Service<URLSessionJSONNetworkHandler> {
+    /// init the Service with an pre-specified `URL` and the `URLSessionJSONNetworkHandler`
     public init (url: URL) {
         super.init(url: url, networkHandler: URLSessionJSONNetworkHandler())
     }

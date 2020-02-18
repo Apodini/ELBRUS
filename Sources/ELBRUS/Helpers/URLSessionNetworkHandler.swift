@@ -14,10 +14,14 @@ import Combine
 public class URLSessionNetworkHandler<Encoder: TopLevelEncoder, Decoder: TopLevelDecoder>: NetworkHandler
 where Encoder.Output == Data, Decoder.Input == Data {
     
+    /// Specifies the encoding strategy.
     public let encoder: Encoder
+    /// Specifies the decoding strategy.
     public let decoder: Decoder
+    /// Specifies the authorization method.
     public let authorization: Authorization
     
+    /// Initialisation of the `URLSessionNetworkHandler` with the option to not set the authorization variable and the decision for no authorization.
     public init(encoder: Encoder, decoder: Decoder, authorization: Authorization = .none) {
         self.encoder = encoder
         self.decoder = decoder
@@ -93,7 +97,9 @@ where Encoder.Output == Data, Decoder.Input == Data {
     }
 }
 
+/// The `URLSessionJSONNetworkHandler` is a specialized version of `URLSessionNetworkHandler` that uses JSON as encoding and decoding strategy.
 public class URLSessionJSONNetworkHandler: URLSessionNetworkHandler<JSONEncoder, JSONDecoder> {
+    /// Initialise an `URLSessionNetworkHandler` with a `JSONEncoder` and `JSONDecoder`
     public init() {
         super.init(encoder: JSONEncoder(), decoder: JSONDecoder())
     }

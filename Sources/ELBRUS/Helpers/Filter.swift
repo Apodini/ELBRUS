@@ -12,8 +12,13 @@ import CodableKit
 // MARK: FilterStrategy
 /// Represents the filter strategy with the different options client, server and none filter
 public enum FilterStrategy <K: RESTElement, V: Filterable> {
+    /// The server case specifies that the filter process is realized through a server route. The user has the option specify an own transaltion function from the filter properties to the server route.
+    /// - Important:
+    /// The configuration of an own server strategy URL creation method takes precedence of the `FilterStrategy` that is specified over the `Service`
     case server(Filter<K, V>, ((String, String, String) -> URLQueryItem)? = nil)
+    /// The client case specifies that the filter process is realized through the `REST` property wrapper locally by the client.
     case client(Filter<K, V>)
+    /// The none case specfies that filtering is not wanted and the default case.
     case none
     
     

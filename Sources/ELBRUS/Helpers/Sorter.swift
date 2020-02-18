@@ -68,3 +68,14 @@ public func defaultSortServerStrategy (_ operation: String, _ property: String) 
         return URLQueryItem(name: "sort_by", value: "-\(property)")
     }
 }
+
+/// - Author: Joshua Brunhuber [GitHubLink](https://github.com/jbrunhuber/joshtastic-simples/blob/master/KeyPaths/KeyPaths.playground/Contents.swift)
+
+// MARK: Extension: Collection: Sorting with a KeyPath
+extension Collection {
+    func sorted<Value: Comparable>(on property: KeyPath<Element, Value>, by areInIncreasingOrder: (Value, Value) -> Bool) -> [Element] {
+        return sorted { currentElement, nextElement in
+            areInIncreasingOrder(currentElement[keyPath: property], nextElement[keyPath: property])
+        }
+    }
+}
