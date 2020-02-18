@@ -2,77 +2,70 @@
   "warnings": [
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 10,
-      "symbol": "Authorization",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 11,
+      "line": 13,
       "symbol": "Authorization.none",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 12,
+      "line": 14,
       "symbol": "Authorization.credentials(type:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 13,
+      "line": 15,
       "symbol": "Authorization.token(type:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 16,
+      "line": 18,
       "symbol": "Credentials",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "Credentials.init(userName:password:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 26,
+      "line": 28,
       "symbol": "PasswordType",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 27,
+      "line": 29,
       "symbol": "PasswordType.basic(credentials:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 44,
+      "line": 46,
       "symbol": "TokenType",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 45,
+      "line": 47,
       "symbol": "TokenType.bearer(token:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 46,
+      "line": 48,
       "symbol": "TokenType.custom(token:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
