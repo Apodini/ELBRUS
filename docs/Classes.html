@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (35% documented)</p>
+        <p><a href="index.html"> Docs</a> (58% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,6 +30,9 @@
           <li class="nav-group-name">
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Cached.html">Cached</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Classes/JSONService.html">JSONService</a>
               </li>
@@ -136,6 +139,39 @@
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ELBRUS6CachedC"></a>
+                    <a name="//apple_ref/swift/Class/Cached" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ELBRUS6CachedC">Cached</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/Cached.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@propertyWrapper</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">Cached</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
               <div class="task-name-container">
                 <a name="/Service"></a>
                 <a name="//apple_ref/swift/Section/Service" class="dashAnchor"></a>
@@ -187,7 +223,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>JSONService provides a initialisation of a Service with a URLSessionNetworkHandler</p>
+                        <p>JSONService provides an initialisation of a <code><a href="Classes/Service.html">Service</a></code> with a <code><a href="Classes/URLSessionJSONNetworkHandler.html">URLSessionJSONNetworkHandler</a></code> that uses JSON as encoding and decoding strategy</p>
 
                         <a href="Classes/JSONService.html" class="slightly-smaller">See more</a>
                       </div>
@@ -257,7 +293,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>URLSessionJSONNetworkHandler</code> is a specialized version of <code><a href="Classes/URLSessionNetworkHandler.html">URLSessionNetworkHandler</a></code> that uses JSON as encoding and decoding strategy.</p>
 
                         <a href="Classes/URLSessionJSONNetworkHandler.html" class="slightly-smaller">See more</a>
                       </div>
@@ -298,7 +334,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified server endpoint in the <code><a href="Classes/Service.html">Service</a></code> variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialisation.</p>
+
+<ul>
+<li>Paramaters:
+
+<ul>
+<li>Element: specifies the type of the data structure that needs to be observed, it confirms to <code><a href="Typealiases.html#/s:6ELBRUS11RESTElementa">RESTElement</a></code> which ensures that the data structure supports the needed functionality</li>
+<li>F: specifies the type of the data structure where a filter is applied on,  it confirms to <code><a href="Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> which ensures that the data structure supports the needed functionality</li>
+<li>S: specifies the type of the data strucutre that will be sorted,  it confirms to <code><a href="Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> which ensures that the data structure supports the needed functionality</li>
+<li>ID: specifies the type of the ID from the<code>Element</code></li>
+</ul></li>
+</ul>
 
                         <a href="Classes/REST.html" class="slightly-smaller">See more</a>
                       </div>
@@ -324,7 +371,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-17)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

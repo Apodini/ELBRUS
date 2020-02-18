@@ -78,24 +78,31 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Filter.swift",
-      "line": 15,
-      "symbol": "FilterStrategy.server(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Caching.swift",
+      "line": 12,
+      "symbol": "Cached",
+      "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Filter.swift",
-      "line": 16,
-      "symbol": "FilterStrategy.client(_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Caching.swift",
+      "line": 14,
+      "symbol": "Cached.localStorageURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Filter.swift",
-      "line": 17,
-      "symbol": "FilterStrategy.none",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Caching.swift",
+      "line": 24,
+      "symbol": "Cached.init(storagePath:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Caching.swift",
+      "line": 28,
+      "symbol": "Cached.wrappedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -183,20 +190,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Service.swift",
-      "line": 20,
-      "symbol": "Service.init(url:networkHandler:filterServerStrategy:sortServerStrategy:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Service.swift",
-      "line": 47,
-      "symbol": "JSONService.init(url:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Sorter.swift",
       "line": 14,
       "symbol": "SortStrategy.server(_:_:)",
@@ -218,64 +211,8 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/URLSessionNetworkHandler.swift",
-      "line": 17,
-      "symbol": "URLSessionNetworkHandler.encoder",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/URLSessionNetworkHandler.swift",
-      "line": 18,
-      "symbol": "URLSessionNetworkHandler.decoder",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/URLSessionNetworkHandler.swift",
-      "line": 19,
-      "symbol": "URLSessionNetworkHandler.authorization",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/URLSessionNetworkHandler.swift",
-      "line": 21,
-      "symbol": "URLSessionNetworkHandler.init(encoder:decoder:authorization:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/URLSessionNetworkHandler.swift",
-      "line": 96,
-      "symbol": "URLSessionJSONNetworkHandler",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/URLSessionNetworkHandler.swift",
-      "line": 97,
-      "symbol": "URLSessionJSONNetworkHandler.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST+Never.swift",
-      "line": 37,
-      "symbol": "REST.init(_:sortStrategy:caching:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST+Never.swift",
-      "line": 43,
-      "symbol": "REST.init(_:filterStrategy:caching:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST+Never.swift",
-      "line": 49,
+      "line": 51,
       "symbol": "REST.init(_:caching:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -299,55 +236,6 @@
       "line": 16,
       "symbol": "Sortable",
       "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 19,
-      "symbol": "REST",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 36,
-      "symbol": "REST",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 42,
-      "symbol": "REST",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 48,
-      "symbol": "REST",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 48,
-      "symbol": "REST.storagePath",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 51,
-      "symbol": "REST.init(_:filterStrategy:sortStrategy:caching:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/REST.swift",
-      "line": 86,
-      "symbol": "REST.wrappedValue",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],
