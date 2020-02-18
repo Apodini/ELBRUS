@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// - Copyright:
+/// Copyright © 2020 by Paul Schmiedmayer
 public enum Authorization {
     case none
     case credentials(type: PasswordType)

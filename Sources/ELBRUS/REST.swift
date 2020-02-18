@@ -21,7 +21,7 @@ public typealias Sortable = Comparable & Reflectable & ReflectionDecodable & Cus
 ///     - Element: specifies the type of the data structure that needs to be observed, it confirms to `RESTElement` which ensures that the data structure supports the needed functionality
 ///     - F: specifies the type of the data structure where a filter is applied on,  it confirms to `Filterable` which ensures that the data structure supports the needed functionality
 ///     - S: specifies the type of the data strucutre that will be sorted,  it confirms to `Sortable` which ensures that the data structure supports the needed functionality
-///     - ID: specifies the type of the ID from the`Element`
+///     - ID: specifies the type of the ID from the `Element`
 @propertyWrapper public class REST
     <Element: RESTElement,
     N: NetworkHandler,
