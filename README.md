@@ -6,7 +6,7 @@ It offers the options of filtering and sorting data on the client or on the serv
 
 ## Features
 
--  Synchronization Over An REST-Endpoint
+-  Synchronization Over A REST-Endpoint
 - Filtering 
 - Sorting
 - Caching
