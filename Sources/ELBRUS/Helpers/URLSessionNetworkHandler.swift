@@ -14,11 +14,11 @@ import Combine
 public class URLSessionNetworkHandler<Encoder: TopLevelEncoder, Decoder: TopLevelDecoder>: NetworkHandler
 where Encoder.Output == Data, Decoder.Input == Data {
     
-    /// Specifies the encoding strategy.
+    /// specifies the encoding strategy
     public let encoder: Encoder
-    /// Specifies the decoding strategy.
+    /// specifies the decoding strategy
     public let decoder: Decoder
-    /// Specifies the authorization method.
+    /// specifies the authorization method
     public let authorization: Authorization
     
     /// Initialisation of the `URLSessionNetworkHandler` with the option to not set the authorization variable and the decision for no authorization.

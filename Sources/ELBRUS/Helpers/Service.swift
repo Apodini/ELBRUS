@@ -45,7 +45,7 @@ public class Service<N: NetworkHandler> {
 
 /// JSONService provides an initialisation of a `Service` with a `URLSessionJSONNetworkHandler` that uses JSON as encoding and decoding strategy
 public class JSONService: Service<URLSessionJSONNetworkHandler> {
-    /// init the Service with an pre-specified `URL` and the `URLSessionJSONNetworkHandler`
+    /// init the `Service` with an pre-specified `URL` and the `URLSessionJSONNetworkHandler`
     public init (url: URL) {
         super.init(url: url, networkHandler: URLSessionJSONNetworkHandler())
     }

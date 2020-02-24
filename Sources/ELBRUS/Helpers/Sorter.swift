@@ -10,12 +10,26 @@ import Foundation
 import CodableKit
 
 /// Represents possible sorting strategies on the server, client or none strategy
+/// How to define a `FilterStrategy`:
+///
+///    SortStrategy example:
+///    basic structure: .strategy(SortStrategy.Sorter(direction: .direction, property: KeyPath))
+///
+///    server example:
+///
+///        let serverStrategy = .server(SortStrategy.Sorter(direction: .asc, property: \Account.name))
+///
+///   defines a sort strategy where a fictional account class is sorted ascending by the name
+
 public enum SortStrategy<K, V> where K: RESTElement, V: Sortable {
+    /// Describes a `SortStrategy` over a server endpoint by extending an URL route.
     case server(Sorter<K, V>, ((String, String) -> URLQueryItem)? = nil)
+    /// Describes a `SortStrategy` by the end-user device.
     case client(Sorter<K, V>)
+    /// Describes none `SortStrategy` is needed.
     case none
     
-    /// Represents the sort functionality
+    /// Describes a Sorter with a `direction` (ascending, descending), the `property` as a `KeyPath` to the later sorted variable of a class and `applied` if a server strategy is already applied.
     public class Sorter<K: RESTElement, V: Sortable> {
         var direction: Direction
         var property: WritableKeyPath<K, V>

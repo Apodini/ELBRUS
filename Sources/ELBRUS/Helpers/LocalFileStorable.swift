@@ -11,9 +11,13 @@ import Foundation
 // MARK: - LocalFileStorable
 /// An object that can be represented and stored as a local file
 public protocol LocalFileStorable {
+    /// specifies the data structure that will be stored
     associatedtype Element: RESTElement
     
+    /// defines the data that will be stored
     var wrappedValue: [Element] { get set }
+    
+    /// defines a `String` that characterizes the wrappedValue unique attributes
     var storagePath: String { get }
 }
 

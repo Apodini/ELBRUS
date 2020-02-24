@@ -11,6 +11,22 @@ import CodableKit
 
 // MARK: FilterStrategy
 /// Represents the filter strategy with the different options client, server and none filter
+///
+/// How to define a `FilterStrategy`:
+///
+///    filterStrategy example:
+///    
+///    basic structure: .strategy(FilterStrategy.Filter(operations: operation1, operation2, ...)))
+///
+///    client example:
+///
+///        let clientStrategy = .client(FilterStrategy.Filter(operations: [.lte(\Account.id!, 100), .gte(\Account.id!, )])))
+///
+///    defines a filter strategy where a fictional account class is filtered for 1 <= ID <= 100
+/// - Attention: You can only define an operations array where all `KeyPath`s are from the same type
+ 
+ 
+
 public enum FilterStrategy <K: RESTElement, V: Filterable> {
     /// The server case specifies that the filter process is realized through a server route. The user has the option specify an own transaltion function from the filter properties to the server route.
     /// - Important:

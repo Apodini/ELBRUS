@@ -14,7 +14,7 @@
     <a title="NetworkHandler Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (59% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,9 +30,6 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/Cached.html">Cached</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/JSONService.html">JSONService</a>
               </li>
@@ -140,7 +137,7 @@
 
                 </div>
               </div>
-            <p>Defines a protocol to represent all the network functionality that is used to communicate with a REST endpoint, the encoding/decoding strategy and the different network requests (get, post, put, delete)</p>
+            <p>Defines a protocol to represent all the network functionality that is used to communicate with a REST endpoint, the encoding/decoding strategy, the different network requests (get, post, put, delete) and the authorization method.</p>
 
           </section>
           <section class="section task-group-section">
@@ -159,7 +156,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>defines the encoding strategy</p>
 
                       </div>
                       <div class="declaration">
@@ -186,7 +183,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>defines the decoding strategy</p>
 
                       </div>
                       <div class="declaration">
@@ -213,7 +210,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>the variable that holds the encoder</p>
 
                       </div>
                       <div class="declaration">
@@ -240,7 +237,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>the variable that holds the decoder</p>
 
                       </div>
                       <div class="declaration">
@@ -267,7 +264,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>the variable that holds the authorization method</p>
 
                       </div>
                       <div class="declaration">
@@ -294,7 +291,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>implements a GET request for a RESTful interface</p>
 
                       </div>
                       <div class="declaration">
@@ -304,6 +301,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="k">get</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="n">on</span> <span class="nv">route</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyPublisher</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Element</span><span class="p">],</span> <span class="kt">Error</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>route</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies the URL for the GET request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an AnyPublisher that holds a data array and an error</p>
                       </div>
                     </section>
                   </div>
@@ -321,7 +341,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>implements a POST request for a RESTful interface</p>
 
                       </div>
                       <div class="declaration">
@@ -331,6 +351,41 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">post</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">element</span><span class="p">:</span> <span class="kt">Element</span><span class="p">,</span> <span class="n">on</span> <span class="nv">route</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyPublisher</span><span class="o">&lt;</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>element</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies the element that will be posted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>route</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies the URL for the POST request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an AnyPublisher that holds the posted element with a specified ID and an error</p>
                       </div>
                     </section>
                   </div>
@@ -348,7 +403,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>implements a PUT request for a RESTful interface</p>
 
                       </div>
                       <div class="declaration">
@@ -358,6 +413,41 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">put</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">element</span><span class="p">:</span> <span class="kt">Element</span><span class="p">,</span> <span class="n">on</span> <span class="nv">route</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyPublisher</span><span class="o">&lt;</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">Element</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>element</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies the new element that will be edited on the ID of this element</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>route</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies the URL for the PUT request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an AnyPublisher that holds the changed element and an error</p>
                       </div>
                     </section>
                   </div>
@@ -375,7 +465,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>implements a DELETE request for a RESTful interface</p>
 
                       </div>
                       <div class="declaration">
@@ -386,6 +476,29 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>route</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>specifies the URL for the DELETE request</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an AnyPublisher that holds an error</p>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -394,7 +507,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-18)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

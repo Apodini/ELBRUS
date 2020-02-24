@@ -11,8 +11,11 @@ import Combine
 import CodableKit
 
 // MARK: Typealiases
+/// defines an element that can be handled over a REST property wrapper
 public typealias RESTElement = Identifiable & Codable & Comparable & Hashable & Reflectable
+/// defines an element that can be filtered through a REST property wrapper
 public typealias Filterable = Comparable & Reflectable & ReflectionDecodable & CustomStringConvertible & Codable
+/// defines an element that can be sorted through a REST property wrapper
 public typealias Sortable = Comparable & Reflectable & ReflectionDecodable & CustomStringConvertible & Codable
 
 // MARK: - propertyWrapper @REST
@@ -51,7 +54,7 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     
     private var publisher: CurrentValueSubject<[Element], Never>
     
-    /// storagePath specifies the appendix of the storage location in the caching process.
+    /// `storagePath` specifies the appendix of the storage location in the caching process.
     public var storagePath: String = ""
     
     // MARK: - init

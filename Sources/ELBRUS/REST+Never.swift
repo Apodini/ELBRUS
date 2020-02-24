@@ -46,8 +46,9 @@ extension REST where S == Never {
         self.init(endpoint, filterStrategy: filterStrategy, sortStrategy: .none, caching: caching)
     }
 }
-/// In the case that no filter and sorting is needed, the generic `Filterable` and  `Sortable` type will be both inferred as `Never`
+
 extension REST where F == Never, S == Never {
+    /// In the case that no filter and sorting is needed, the generic `Filterable` and  `Sortable` type will be both inferred as `Never`
     public convenience init(_ endpoint: Service<N>, caching: Bool = false) {
         self.init(endpoint, filterStrategy: .none, sortStrategy: .none, caching: caching)
     }

@@ -14,7 +14,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (59% documented)</p>
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,9 +30,6 @@
           <li class="nav-group-name">
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Classes/Cached.html">Cached</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Classes/JSONService.html">JSONService</a>
               </li>
@@ -155,9 +152,12 @@
                       <div class="abstract">
                         <div class="aside aside-copyright">
     <p class="aside-title">Copyright</p>
-    Copyright © 2020 by Paul Schmiedmayer
-
+    
 </div>
+
+<p>Copyright © 2020 by Paul Schmiedmayer</p>
+
+<p>The <code>Authorization</code> class represents  3 different authorization methods, none for no authentication, credentials for a basic authentication and a bearer token or a custom token.</p>
 
                         <a href="Enums/Authorization.html" class="slightly-smaller">See more</a>
                       </div>
@@ -185,7 +185,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>PasswordType</code> implements the Base64 encoding of the credentials.</p>
 
                         <a href="Enums/PasswordType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -213,7 +213,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code>TokenType</code> is used for token authentication over a bearer token or a custom defined token.</p>
 
                         <a href="Enums/TokenType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -256,6 +256,23 @@
                       <div class="abstract">
                         <p>Represents the filter strategy with the different options client, server and none filter</p>
 
+<p>How to define a <code>FilterStrategy</code>:</p>
+
+<p>filterStrategy example:</p>
+
+<p>basic structure: .strategy(FilterStrategy.Filter(operations: operation1, operation2, &hellip;)))</p>
+
+<p>client example:</p>
+<pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">clientStrategy</span> <span class="o">=</span> <span class="o">.</span><span class="nf">client</span><span class="p">(</span><span class="kt">FilterStrategy</span><span class="o">.</span><span class="kt">Filter</span><span class="p">(</span><span class="nv">operations</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">lte</span><span class="p">(\</span><span class="kt">Account</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">.</span><span class="nf">gte</span><span class="p">(\</span><span class="kt">Account</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="p">)])))</span>
+</code></pre>
+
+<p>defines a filter strategy where a fictional account class is filtered for 1 &lt;= ID &lt;= 100</p>
+<div class="aside aside-attention">
+    <p class="aside-title">Attention</p>
+    You can only define an operations array where all <code>KeyPath</code>s are from the same type
+
+</div>
+
                         <a href="Enums/FilterStrategy.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -295,7 +312,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents possible sorting strategies on the server, client or none strategy</p>
+                        <p>Represents possible sorting strategies on the server, client or none strategy
+How to define a <code><a href="Enums/FilterStrategy.html">FilterStrategy</a></code>:</p>
+
+<p>SortStrategy example:
+   basic structure: .strategy(SortStrategy.Sorter(direction: .direction, property: KeyPath))</p>
+
+<p>server example:</p>
+<pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">serverStrategy</span> <span class="o">=</span> <span class="o">.</span><span class="nf">server</span><span class="p">(</span><span class="kt">SortStrategy</span><span class="o">.</span><span class="kt">Sorter</span><span class="p">(</span><span class="nv">direction</span><span class="p">:</span> <span class="o">.</span><span class="n">asc</span><span class="p">,</span> <span class="nv">property</span><span class="p">:</span> <span class="p">\</span><span class="kt">Account</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+</code></pre>
+
+<p>defines a sort strategy where a fictional account class is sorted ascending by the name</p>
 
                         <a href="Enums/SortStrategy.html" class="slightly-smaller">See more</a>
                       </div>
@@ -315,7 +342,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-18)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-02-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
