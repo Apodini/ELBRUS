@@ -45,7 +45,7 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
         let operations: [Operation<K, V>]
         var applied = false
         
-        enum Operation<K, V> {
+        public enum Operation<K, V> {
             case lte(WritableKeyPath<K, V>, V)
             case gte(WritableKeyPath<K, V>, V)
             case exists(WritableKeyPath<K, V>, V)
@@ -62,7 +62,7 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
             }
         }
         
-        init(operations: [Operation<K, V>]) {
+        public init(operations: [Operation<K, V>]) {
             self.operations = operations
         }
         
