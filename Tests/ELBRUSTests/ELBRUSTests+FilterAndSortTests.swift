@@ -15,14 +15,20 @@ extension ELBRUSTests {
     // MARK: - Filter + Sort
     
     /**
-     filter and sort elements serverside, expect the correct URL 
+     filter and sort elements serverside, expect the correct URLs
      */
     func test_filterAndSort_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name")!,
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")])), sortStrategy: .server(SortStrategy.Sorter(direction: .asc, property: \Account.name)) )

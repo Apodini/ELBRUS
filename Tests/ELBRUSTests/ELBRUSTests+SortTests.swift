@@ -96,7 +96,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=+name")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=+name")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint,
@@ -117,7 +120,11 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=-name")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=-name")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
+            
         ]
         
         let rest = REST(endpoint,
@@ -140,7 +147,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint,
@@ -161,7 +171,10 @@ extension ELBRUSTests {
         endpointWithSortStrategy.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpointWithSortStrategy,
@@ -182,7 +195,10 @@ extension ELBRUSTests {
         endpointWithSortStrategy.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=asc(name)")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=asc(name)")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpointWithSortStrategy,

@@ -138,7 +138,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")])))
@@ -158,7 +161,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[lte]=Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[lte]=Paul")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.lte(\Account.name, "Paul")])))
@@ -178,7 +184,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[gte]=Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[gte]=Paul")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.gte(\Account.name, "Paul")])))
@@ -198,7 +207,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?id[lte]=2&id[gte]=1")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?id[lte]=2&id[gte]=1")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint,
@@ -222,7 +234,10 @@ extension ELBRUSTests {
         endpoint.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")]), colonFilterServerStrategy))
@@ -242,7 +257,10 @@ extension ELBRUSTests {
         endpointWithFilterStrategy.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpointWithFilterStrategy, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")])))
@@ -262,7 +280,10 @@ extension ELBRUSTests {
         endpointWithFilterStrategy.networkHandler.mockNetworkCalls = [
             .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name(exists)=Paul")!,
                  expectation: expectation(description: "empty array"),
-                 mockResult: .success([]))
+                 mockResult: .success([])),
+            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name(exists)=Paul")!,
+            expectation: expectation(description: "empty array"),
+            mockResult: .success([]))
         ]
         
         let rest = REST(endpointWithFilterStrategy, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")]), roundBracketsFilterServerStrategy))
