@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Authorization.swift",
-      "line": 38,
-      "symbol": "PasswordType.basic(credentials:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/tommirwald/Documents/BA/ELBRUS"
 }

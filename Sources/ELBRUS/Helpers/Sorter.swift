@@ -35,11 +35,13 @@ public enum SortStrategy<K, V> where K: RESTElement, V: Sortable {
         var property: WritableKeyPath<K, V>
         var applied = false
         
+        /// specifies the direction of sorting, ascending (`.asc`) or descending (`.desc`)
         public enum Direction {
             case asc
             case desc
         }
         
+        /// The `init` initializes the `Sorter` with the `Direction` of sorting and the `Property` that is used to sort the data.
         public init(direction: Direction = .asc, property: WritableKeyPath<K, V>) {
             self.direction = direction
             self.property = property

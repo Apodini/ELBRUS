@@ -11,7 +11,7 @@ import Foundation
 ///
 /// Copyright © 2020 by Paul Schmiedmayer
 ///
-/// The `Authorization` class represents  3 different authorization methods, none for no authentication, credentials for a basic authentication and a bearer token or a custom token.
+/// The `Authorization` class represents three different authorization methods, none for no authentication, credentials for a basic authentication, and a bearer token, or a custom token.
 public enum Authorization {
     /// describes none authentication
     case none

@@ -19,7 +19,7 @@ public typealias Filterable = Comparable & Reflectable & ReflectionDecodable & C
 public typealias Sortable = Comparable & Reflectable & ReflectionDecodable & CustomStringConvertible & Codable
 
 // MARK: - propertyWrapper @REST
-/// The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified server endpoint in the `Service` variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialisation.
+/// The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified server endpoint in the `Service` variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialization.
 /// - Paramaters:
 ///     - Element: specifies the type of the data structure that needs to be observed, it confirms to `RESTElement` which ensures that the data structure supports the needed functionality
 ///     - F: specifies the type of the data structure where a filter is applied on,  it confirms to `Filterable` which ensures that the data structure supports the needed functionality

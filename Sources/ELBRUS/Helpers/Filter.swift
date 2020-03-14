@@ -16,19 +16,21 @@ import CodableKit
 ///
 ///    filterStrategy example:
 ///    
-///    basic structure: .strategy(FilterStrategy.Filter(operations: operation1, operation2, ...)))
+///    basic structure:
+///
+///         .strategy(FilterStrategy.Filter(operations: operation1, operation2, ...)))
 ///
 ///    client example:
 ///
 ///        let clientStrategy = .client(FilterStrategy.Filter(operations: [.lte(\Account.id!, 100), .gte(\Account.id!, )])))
 ///
 ///    defines a filter strategy where a fictional account class is filtered for 1 <= ID <= 100
-/// - Attention: You can only define an operations array where all `KeyPath`s are from the same type
+/// - Attention: You can only define the operations array where all `KeyPaths` are from the same data type
  
  
 
 public enum FilterStrategy <K: RESTElement, V: Filterable> {
-    /// The server case specifies that the filter process is realized through a server route. The user has the option specify an own transaltion function from the filter properties to the server route.
+    /// The server case specifies that the filter process is realized through a server route. The user has the option to specify an own transaltion function from the filter properties to the server route.
     /// - Important:
     /// The configuration of an own server strategy URL creation method takes precedence of the `FilterStrategy` that is specified over the `Service`
     case server(Filter<K, V>, ((String, String, String) -> URLQueryItem)? = nil)
@@ -45,6 +47,7 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
         let operations: [Operation<K, V>]
         var applied = false
         
+        /// The `Operation` specifies the filter operation with the possible options of less equal (`.lte``), greater equal (`.gte`) and equal (`.exists`)
         public enum Operation<K, V> {
             case lte(WritableKeyPath<K, V>, V)
             case gte(WritableKeyPath<K, V>, V)
@@ -62,6 +65,7 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
             }
         }
         
+        /// The `init` to initialize a `Filter` with the `Operations` that define the `FilterStrategy`
         public init(operations: [Operation<K, V>]) {
             self.operations = operations
         }
