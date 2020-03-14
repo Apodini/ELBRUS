@@ -292,6 +292,8 @@ extension REST {
                 
                 filter.applied = true
             }
+            cancelGet = handleNetworkChangeAndSetLocalData(networkRequest: .get)
+            fallthrough
         case .client(let filter):
             for operation in filter.operations {
                 switch operation {
@@ -329,6 +331,8 @@ extension REST {
                 
                 sorter.applied = true
             }
+            cancelGet = handleNetworkChangeAndSetLocalData(networkRequest: .get)
+            fallthrough
         case .client(let sorter):
             switch sorter.direction {
             case .asc:
