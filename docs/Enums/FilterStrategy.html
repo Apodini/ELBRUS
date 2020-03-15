@@ -14,7 +14,7 @@
     <a title="FilterStrategy Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (94% documented)</p>
+        <p><a href="../index.html"> Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -137,15 +137,13 @@
 
                 </div>
               </div>
-            <p>represents the filter strategy with the different options client, server and none filter</p>
+            <p>Represents the filter strategy with the different options client, server and none filter</p>
 
 <p>How to define a <code>FilterStrategy</code>:</p>
 
-<p><code>FilterStrategy</code> example:</p>
+<p>filterStrategy example:</p>
 
-<p>basic structure:</p>
-<pre class="highlight swift"><code>    <span class="o">.</span><span class="nf">strategy</span><span class="p">(</span><span class="kt">FilterStrategy</span><span class="o">.</span><span class="kt">Filter</span><span class="p">(</span><span class="nv">operations</span><span class="p">:</span> <span class="n">operation1</span><span class="p">,</span> <span class="n">operation2</span><span class="p">,</span> <span class="o">...</span><span class="p">)))</span>
-</code></pre>
+<p>basic structure: .strategy(FilterStrategy.Filter(operations: operation1, operation2, &hellip;)))</p>
 
 <p>client example:</p>
 <pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">clientStrategy</span> <span class="o">=</span> <span class="o">.</span><span class="nf">client</span><span class="p">(</span><span class="kt">FilterStrategy</span><span class="o">.</span><span class="kt">Filter</span><span class="p">(</span><span class="nv">operations</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">lte</span><span class="p">(\</span><span class="kt">Account</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">.</span><span class="nf">gte</span><span class="p">(\</span><span class="kt">Account</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="p">)])))</span>
@@ -154,7 +152,7 @@
 <p>defines a filter strategy where a fictional account class is filtered for 1 &lt;= ID &lt;= 100</p>
 <div class="aside aside-attention">
     <p class="aside-title">Attention</p>
-    You can only define the operations array where all <code>KeyPaths</code> are from the same data type
+    You can only define an operations array where all <code>KeyPath</code>s are from the same type
 
 </div>
 
@@ -175,10 +173,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>specifies that the filter process is realized through a server route; the user has the option to specify an own translation function in the case</p>
+                        <p>The server case specifies that the filter process is realized through a server route. The user has the option specify an own transaltion function from the filter properties to the server route.</p>
 <div class="aside aside-important">
     <p class="aside-title">Important</p>
-    The configuration of an own server strategy <code>URL</code> creation method takes precedence over the <code>FilterStrategy</code> that is specified over the <code><a href="../Classes/Service.html">Service</a></code>.
+    The configuration of an own server strategy URL creation method takes precedence of the <code>FilterStrategy</code> that is specified over the <code><a href="../Classes/Service.html">Service</a></code>
 
 </div>
 
@@ -207,7 +205,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>specifies that the filter process is realized through the <code><a href="../Classes/REST.html">REST</a></code> property wrapper locally by the client.</p>
+                        <p>The client case specifies that the filter process is realized through the <code><a href="../Classes/REST.html">REST</a></code> property wrapper locally by the client.</p>
 
                       </div>
                       <div class="declaration">
@@ -234,7 +232,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>specfies that filtering is not wanted and the default case.</p>
+                        <p>The none case specfies that filtering is not wanted and the default case.</p>
 
                       </div>
                       <div class="declaration">
@@ -274,7 +272,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>represents a filter that takes a generic <code><a href="../Typealiases.html#/s:6ELBRUS11RESTElementa">RESTElement</a></code> and <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> element to perform the operations: greater equal, less equal and exists, with the possibility to have more than one filter operation</p>
+                        <p>Represents a filter that takes a generic RESTElement and Filterable element to perform the operations: greater equal, less equal and exists, with the possibility to have more than one filter operation
+The serverStrategyApplied variable indicates wether the server strategy is already added to the URLComponent</p>
 
                         <a href="../Enums/FilterStrategy/Filter.html" class="slightly-smaller">See more</a>
                       </div>
@@ -294,7 +293,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-15)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

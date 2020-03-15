@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - LocalFileStorable
-/// an object that can be represented and stored as a local file
+/// An object that can be represented and stored as a local file
 public protocol LocalFileStorable {
     /// specifies the data structure that will be stored
     associatedtype Element: RESTElement
@@ -17,14 +17,14 @@ public protocol LocalFileStorable {
     /// defines the data that will be stored
     var wrappedValue: [Element] { get set }
     
-    /// defines a `String` that characterizes the unique attributes of the `wrappedValue`
+    /// defines a `String` that characterizes the wrappedValue unique attributes
     var storagePath: String { get }
 }
 
 // MARK: Extension: LocalFileStorable: URL
 extension LocalFileStorable {
     
-    /// `URL` of the parent folder to store the variable in
+    /// The URL of the parent folder to store the LocalFileStorable in
     public var localStorageURL: URL {
         guard let documentsDirectory = FileManager().urls(for: .cachesDirectory, in: .userDomainMask).first else {
             fatalError("Can't access the cache directory in the user's home directory.")
@@ -38,8 +38,8 @@ extension LocalFileStorable {
 extension LocalFileStorable {
     
     
-    ///  Load an array of `LocalFileStorables` from a file
-    /// - Returns: an array of decoded objects
+    ///  Load an array of LocalFileStorables from a file
+    /// - Returns: An array of deserialised objects
     public func loadFromFile() -> [Element] {
         do {
             let fileWrapper = try FileWrapper(url: localStorageURL, options: .immediate)
@@ -55,8 +55,8 @@ extension LocalFileStorable {
     }
     
     
-    /// Save a collection of `LocalFileStorables` to a file
-    /// - Parameter collection: `Collection` of objects that should be saved
+    /// Save a collection of LocalFileStorables to a file
+    /// - Parameter collection: Collection of objects to be saved
     public func saveToFile(_ collection: [Element]) {
         do {
             let data = try JSONEncoder().encode(collection)

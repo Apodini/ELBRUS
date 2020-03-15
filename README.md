@@ -1,21 +1,18 @@
 # ELBRUS
 
-ELBRUS is a framework for data observation and the automatic data synchronization with a RESTful service. 
-ELBRUS offers the options of filtering and sorting data on the client or on the server-side. Furthermore, you have the possibility of caching.
+ELBRUS is a framework for data observation and the automatic data synchronization with a REST-endpoint. 
+It offers the options of filtering and sorting data on the client or on the server-side. Furthermore you have the possibility of caching.
 
 
 ## Features
 
--  Synchronization Over A RESTful API
+-  Synchronization Over A REST-Endpoint
 - Filtering 
 - Sorting
 - Caching
 
 ## Installation
 ELBRUS is available over the [Swift Package Manager](https://swift.org/package-manager/).
-
-## Documentation
-A documentation about the public API is available [here]().
 
 ## License
 ELBRUS is released under a [MIT License](https://opensource.org/licenses/MIT). 

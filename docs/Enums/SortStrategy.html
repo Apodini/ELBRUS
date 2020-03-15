@@ -14,7 +14,7 @@
     <a title="SortStrategy Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (94% documented)</p>
+        <p><a href="../index.html"> Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -137,13 +137,11 @@
 
                 </div>
               </div>
-            <p>represents possible sorting strategies on the server, client or none strategy
+            <p>Represents possible sorting strategies on the server, client or none strategy
 How to define a <code><a href="../Enums/FilterStrategy.html">FilterStrategy</a></code>:</p>
 
-<p><code>SortStrategy</code> example:
-   basic structure:</p>
-<pre class="highlight swift"><code>    <span class="o">.</span><span class="nf">strategy</span><span class="p">(</span><span class="kt">SortStrategy</span><span class="o">.</span><span class="kt">Sorter</span><span class="p">(</span><span class="nv">direction</span><span class="p">:</span> <span class="o">.</span><span class="n">direction</span><span class="p">,</span> <span class="nv">property</span><span class="p">:</span> <span class="kt">KeyPath</span><span class="p">))</span>
-</code></pre>
+<p>SortStrategy example:
+   basic structure: .strategy(SortStrategy.Sorter(direction: .direction, property: KeyPath))</p>
 
 <p>server example:</p>
 <pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">serverStrategy</span> <span class="o">=</span> <span class="o">.</span><span class="nf">server</span><span class="p">(</span><span class="kt">SortStrategy</span><span class="o">.</span><span class="kt">Sorter</span><span class="p">(</span><span class="nv">direction</span><span class="p">:</span> <span class="o">.</span><span class="n">asc</span><span class="p">,</span> <span class="nv">property</span><span class="p">:</span> <span class="p">\</span><span class="kt">Account</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
@@ -168,12 +166,7 @@ How to define a <code><a href="../Enums/FilterStrategy.html">FilterStrategy</a><
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>specifies that the sorting process is realized through a server route; the user has the option to specify an own translation function in the case</p>
-<div class="aside aside-important">
-    <p class="aside-title">Important</p>
-    The configuration of an own server strategy <code>URL</code> creation method takes precedence over the <code>SortStrategy</code> that is specified over the <code><a href="../Classes/Service.html">Service</a></code>.
-
-</div>
+                        <p>Describes a <code>SortStrategy</code> over a server endpoint by extending an URL route.</p>
 
                       </div>
                       <div class="declaration">
@@ -200,7 +193,7 @@ How to define a <code><a href="../Enums/FilterStrategy.html">FilterStrategy</a><
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>describes a <code>SortStrategy</code> client-side</p>
+                        <p>Describes a <code>SortStrategy</code> by the end-user device.</p>
 
                       </div>
                       <div class="declaration">
@@ -227,7 +220,7 @@ How to define a <code><a href="../Enums/FilterStrategy.html">FilterStrategy</a><
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>describes none <code>SortStrategy</code> is needed.</p>
+                        <p>Describes none <code>SortStrategy</code> is needed.</p>
 
                       </div>
                       <div class="declaration">
@@ -254,7 +247,7 @@ How to define a <code><a href="../Enums/FilterStrategy.html">FilterStrategy</a><
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>describes a <code>Sorter</code> with a <code>Direction</code> (ascending, descending), the <code>property</code> as a <code>KeyPath</code> to the later sorted variable of a class</p>
+                        <p>Describes a Sorter with a <code>direction</code> (ascending, descending), the <code>property</code> as a <code>KeyPath</code> to the later sorted variable of a class and <code>applied</code> if a server strategy is already applied.</p>
 
                         <a href="../Enums/SortStrategy/Sorter.html" class="slightly-smaller">See more</a>
                       </div>
@@ -274,7 +267,7 @@ How to define a <code><a href="../Enums/FilterStrategy.html">FilterStrategy</a><
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-15)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

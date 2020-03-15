@@ -11,7 +11,7 @@ import Foundation
 ///
 /// Copyright © 2020 by Paul Schmiedmayer
 ///
-/// The `Authorization` class represents three different authorization methods, none for no authentication, credentials for a basic authentication, and over the bearer token, or a custom token.
+/// The `Authorization` class represents three different authorization methods, none for no authentication, credentials for a basic authentication, and a bearer token, or a custom token.
 public enum Authorization {
     /// describes none authentication
     case none
@@ -21,12 +21,12 @@ public enum Authorization {
     case token(type: TokenType)
 }
 
-/// The `Credentials` offer the possibility to declare a user name and password for a basic authentication.
+/// The `Credentials` offer the possibility to declare an user name and password for a basic authentication.
 public struct Credentials {
     let userName: String
     let password: String
     
-    /// The `init` for the initialization of a `Credential` consisting of a user name and a password. 
+    /// The `init` for the initialisation of a `Credential` consisting of an user name and a password. 
     public init(userName: String, password: String) {
         self.userName = userName
         self.password = password
@@ -35,17 +35,17 @@ public struct Credentials {
 
 /// `PasswordType` implements the Base64 encoding of the credentials.
 public enum PasswordType: CustomStringConvertible {
-    /// describes basic authentication over given credentials.
+    /// Describes basic authentication over given credentials.
     case basic(credentials: Credentials)
     
-    /// `credentials` variable gives you access to the credentials in the basic `PasswordType` case.
+    /// The `credentials` variable gives you access to the credentials in the basic `PasswordType` case.
     var credentials: Credentials {
         switch self {
         case .basic(let credentials): return credentials
         }
     }
     
-    /// `description` variable is used for a string representation of the Base64 encoding of the credentials.
+    /// The `description` variable is used for the Base64 encoding of the credentials.
     public var description: String {
         switch self {
         case .basic(let credentials):
@@ -57,12 +57,12 @@ public enum PasswordType: CustomStringConvertible {
 
 /// `TokenType` is used for token authentication over a bearer token or a custom defined token.
 public enum TokenType: CustomStringConvertible {
-    /// describes the bearer token authentication.
+    /// Describes the bearer token authentication.
     case bearer(token: String)
-    /// describes a custom definable token authentication.
+    /// Describes a custom definable token authentication.
     case custom(token: String)
     
-    /// `description` variable returns a `String` representation of the two token types
+    /// The `description` variable returns a `String` representation of the two token types.
     public var description: String {
         switch self {
         case .bearer(let token):

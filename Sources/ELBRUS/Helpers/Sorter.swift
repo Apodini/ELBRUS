@@ -9,13 +9,11 @@
 import Foundation
 import CodableKit
 
-/// represents possible sorting strategies on the server, client or none strategy
+/// Represents possible sorting strategies on the server, client or none strategy
 /// How to define a `FilterStrategy`:
 ///
-///    `SortStrategy` example:
-///    basic structure:
-///
-///         .strategy(SortStrategy.Sorter(direction: .direction, property: KeyPath))
+///    SortStrategy example:
+///    basic structure: .strategy(SortStrategy.Sorter(direction: .direction, property: KeyPath))
 ///
 ///    server example:
 ///
@@ -24,16 +22,14 @@ import CodableKit
 ///   defines a sort strategy where a fictional account class is sorted ascending by the name
 
 public enum SortStrategy<K, V> where K: RESTElement, V: Sortable {
-    /// specifies that the sorting process is realized through a server route; the user has the option to specify an own translation function in the case
-    /// - Important:
-    /// The configuration of an own server strategy `URL` creation method takes precedence over the `SortStrategy` that is specified over the `Service`.
+    /// Describes a `SortStrategy` over a server endpoint by extending an URL route.
     case server(Sorter<K, V>, ((String, String) -> URLQueryItem)? = nil)
-    /// describes a `SortStrategy` client-side
+    /// Describes a `SortStrategy` by the end-user device.
     case client(Sorter<K, V>)
-    /// describes none `SortStrategy` is needed.
+    /// Describes none `SortStrategy` is needed.
     case none
     
-    /// describes a `Sorter` with a `Direction` (ascending, descending), the `property` as a `KeyPath` to the later sorted variable of a class
+    /// Describes a Sorter with a `direction` (ascending, descending), the `property` as a `KeyPath` to the later sorted variable of a class and `applied` if a server strategy is already applied.
     public class Sorter<K: RESTElement, V: Sortable> {
         var direction: Direction
         var property: WritableKeyPath<K, V>
@@ -76,11 +72,11 @@ public enum SortStrategy<K, V> where K: RESTElement, V: Sortable {
     }
 }
 
-/// represents a default sorting strategy from https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/#sorting .
+/// Represents a default sorting strategy from https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/#sorting
 /// - Parameters:
-///   - operation: specifies the sort direction
-///   - property: specifies the sorted property
-/// - Returns: an `URLQueryItem` that represents a single sorting strategy from the custom configuration
+///   - operation: the operation in which direction the sorting should go
+///   - property: the property on which the sorting should happen
+/// - Returns: An URLQueryItem that represents a single sorting strategy from the custom configuration
 public func defaultSortServerStrategy (_ operation: String, _ property: String) -> URLQueryItem {
     if operation == "asc" {
         return URLQueryItem(name: "sort_by", value: "+\(property)")

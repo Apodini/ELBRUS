@@ -14,7 +14,7 @@
     <a title="REST Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (94% documented)</p>
+        <p><a href="../index.html"> Docs</a> (89% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -143,15 +143,15 @@
 
                 </div>
               </div>
-            <p>The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified RESTful service in the <code><a href="../Classes/Service.html">Service</a></code> variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialization.</p>
+            <p>The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified server endpoint in the <code><a href="../Classes/Service.html">Service</a></code> variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialisation.</p>
 
 <ul>
 <li>Paramaters:
 
 <ul>
-<li>Element: specifies the type of data structure that needs to be observed, it conforms to <code><a href="../Typealiases.html#/s:6ELBRUS11RESTElementa">RESTElement</a></code> which ensures that the data structure supports the needed functionality</li>
-<li>F: specifies the type of data structure where a filter is applied on,  it conforms to <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> which ensures that the data structure supports the needed functionality</li>
-<li>S: specifies the type of data strucutre that will be sorted,  it conforms to <code><a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> which ensures that the data structure supports the needed functionality</li>
+<li>Element: specifies the type of the data structure that needs to be observed, it confirms to <code><a href="../Typealiases.html#/s:6ELBRUS11RESTElementa">RESTElement</a></code> which ensures that the data structure supports the needed functionality</li>
+<li>F: specifies the type of the data structure where a filter is applied on,  it confirms to <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> which ensures that the data structure supports the needed functionality</li>
+<li>S: specifies the type of the data strucutre that will be sorted,  it confirms to <code><a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> which ensures that the data structure supports the needed functionality</li>
 <li>ID: specifies the type of the ID from the <code>Element</code></li>
 </ul></li>
 </ul>
@@ -213,7 +213,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>init</code> is used for the configuration of the data synchronization, to specifiy the RESTful service address with the network service, optional filtering, sorting, and caching.</p>
+                        <p><code>init</code> is used for the configuration of the wanted functionality, to specifiy the server endpoint with the network service and optional filtering, sorting and cahcing.</p>
 
                       </div>
                       <div class="declaration">
@@ -256,7 +256,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The wrappedValue is the observed data structure and represents the connected data. This data will be synchronized with the RESTful service.</p>
+                        <p>The wrappedValue is the observed data structure and represents the connected data. This data will be synchronized with the server endpoint.</p>
 
                       </div>
                       <div class="declaration">
@@ -296,7 +296,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>In the case that filtering is not needed, the generic <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> type will be inferred as <code>Never</code></p>
+                        <p>In the case that no filter is needed, the generic <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> type will be inferred as <code>Never</code></p>
 
                       </div>
                       <div class="declaration">
@@ -336,7 +336,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>In the case that sorting is not needed, the generic <code><a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> type will be inferred as <code>Never</code></p>
+                        <p>In the case that no filter is needed, the generic <code><a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> type will be inferred as <code>Never</code></p>
 
                       </div>
                       <div class="declaration">
@@ -376,7 +376,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>In the case that filtering and sorting is not needed, the generic <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> and  <code><a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> types will be both inferred as <code>Never</code></p>
+                        <p>In the case that no filter and sorting is needed, the generic <code><a href="../Typealiases.html#/s:6ELBRUS10Filterablea">Filterable</a></code> and  <code><a href="../Typealiases.html#/s:6ELBRUS8Sortablea">Sortable</a></code> type will be both inferred as <code>Never</code></p>
 
                       </div>
                       <div class="declaration">
@@ -395,7 +395,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-15)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -1,40 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Filter.swift",
-      "line": 51,
-      "symbol": "FilterStrategy.Filter.Operation.lte(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Filter.swift",
-      "line": 52,
-      "symbol": "FilterStrategy.Filter.Operation.gte(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Filter.swift",
-      "line": 53,
-      "symbol": "FilterStrategy.Filter.Operation.exists(_:_:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Sorter.swift",
-      "line": 44,
-      "symbol": "SortStrategy.Sorter.Direction.asc",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/tommirwald/Documents/BA/ELBRUS/Sources/ELBRUS/Helpers/Sorter.swift",
-      "line": 45,
-      "symbol": "SortStrategy.Sorter.Direction.desc",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/tommirwald/Documents/BA/ELBRUS"
 }
