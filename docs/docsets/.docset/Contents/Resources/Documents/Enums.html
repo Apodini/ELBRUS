@@ -14,7 +14,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (89% documented)</p>
+        <p><a href="index.html"> Docs</a> (94% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -157,7 +157,7 @@
 
 <p>Copyright © 2020 by Paul Schmiedmayer</p>
 
-<p>The <code>Authorization</code> class represents  3 different authorization methods, none for no authentication, credentials for a basic authentication and a bearer token or a custom token.</p>
+<p>The <code>Authorization</code> class represents three different authorization methods, none for no authentication, credentials for a basic authentication, and over the bearer token, or a custom token.</p>
 
                         <a href="Enums/Authorization.html" class="slightly-smaller">See more</a>
                       </div>
@@ -254,13 +254,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the filter strategy with the different options client, server and none filter</p>
+                        <p>represents the filter strategy with the different options client, server and none filter</p>
 
 <p>How to define a <code>FilterStrategy</code>:</p>
 
-<p>filterStrategy example:</p>
+<p><code>FilterStrategy</code> example:</p>
 
-<p>basic structure: .strategy(FilterStrategy.Filter(operations: operation1, operation2, &hellip;)))</p>
+<p>basic structure:</p>
+<pre class="highlight swift"><code>    <span class="o">.</span><span class="nf">strategy</span><span class="p">(</span><span class="kt">FilterStrategy</span><span class="o">.</span><span class="kt">Filter</span><span class="p">(</span><span class="nv">operations</span><span class="p">:</span> <span class="n">operation1</span><span class="p">,</span> <span class="n">operation2</span><span class="p">,</span> <span class="o">...</span><span class="p">)))</span>
+</code></pre>
 
 <p>client example:</p>
 <pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">clientStrategy</span> <span class="o">=</span> <span class="o">.</span><span class="nf">client</span><span class="p">(</span><span class="kt">FilterStrategy</span><span class="o">.</span><span class="kt">Filter</span><span class="p">(</span><span class="nv">operations</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">lte</span><span class="p">(\</span><span class="kt">Account</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">.</span><span class="nf">gte</span><span class="p">(\</span><span class="kt">Account</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="p">)])))</span>
@@ -269,7 +271,7 @@
 <p>defines a filter strategy where a fictional account class is filtered for 1 &lt;= ID &lt;= 100</p>
 <div class="aside aside-attention">
     <p class="aside-title">Attention</p>
-    You can only define an operations array where all <code>KeyPath</code>s are from the same type
+    You can only define the operations array where all <code>KeyPaths</code> are from the same data type
 
 </div>
 
@@ -312,11 +314,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents possible sorting strategies on the server, client or none strategy
+                        <p>represents possible sorting strategies on the server, client or none strategy
 How to define a <code><a href="Enums/FilterStrategy.html">FilterStrategy</a></code>:</p>
 
-<p>SortStrategy example:
-   basic structure: .strategy(SortStrategy.Sorter(direction: .direction, property: KeyPath))</p>
+<p><code>SortStrategy</code> example:
+   basic structure:</p>
+<pre class="highlight swift"><code>    <span class="o">.</span><span class="nf">strategy</span><span class="p">(</span><span class="kt">SortStrategy</span><span class="o">.</span><span class="kt">Sorter</span><span class="p">(</span><span class="nv">direction</span><span class="p">:</span> <span class="o">.</span><span class="n">direction</span><span class="p">,</span> <span class="nv">property</span><span class="p">:</span> <span class="kt">KeyPath</span><span class="p">))</span>
+</code></pre>
 
 <p>server example:</p>
 <pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">serverStrategy</span> <span class="o">=</span> <span class="o">.</span><span class="nf">server</span><span class="p">(</span><span class="kt">SortStrategy</span><span class="o">.</span><span class="kt">Sorter</span><span class="p">(</span><span class="nv">direction</span><span class="p">:</span> <span class="o">.</span><span class="n">asc</span><span class="p">,</span> <span class="nv">property</span><span class="p">:</span> <span class="p">\</span><span class="kt">Account</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
@@ -342,7 +346,7 @@ How to define a <code><a href="Enums/FilterStrategy.html">FilterStrategy</a></co
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-14)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

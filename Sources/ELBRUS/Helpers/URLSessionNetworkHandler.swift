@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 // MARK: URLSessionNetworkHandler
-/// The `URLSessionNetworkHandler` confirms to the `NetworkHandler` protocol and represents an implementation of the different network requests
+/// `URLSessionNetworkHandler` conforms to the `NetworkHandler` protocol and represents an implementation of the different network requests
 public class URLSessionNetworkHandler<Encoder: TopLevelEncoder, Decoder: TopLevelDecoder>: NetworkHandler
 where Encoder.Output == Data, Decoder.Input == Data {
     
@@ -21,18 +21,18 @@ where Encoder.Output == Data, Decoder.Input == Data {
     /// specifies the authorization method
     public let authorization: Authorization
     
-    /// Initialization of the `URLSessionNetworkHandler` with the option to not set the `Authorization` variable
+    /// initialization of the `URLSessionNetworkHandler` with `.none` as default `Authorization` variable
     public init(encoder: Encoder, decoder: Decoder, authorization: Authorization = .none) {
         self.encoder = encoder
         self.decoder = decoder
         self.authorization = authorization
     }
     
-    /// Performs a PUT request on the specified `URL` and replaces the element located on the `URL` with the `Element` that is passed in
+    /// performs a PUT request on the specified `URL` and replaces the element located on the `URL` with the `Element` that is passed in
     /// - Parameters:
     ///   - element: the element that is used to replace the old element
-    ///   - route: the URL where the old element is located
-    /// - Returns: An `AnyPublisher` that holds the new `Element` and an `Error`
+    ///   - route: the `URL` where the old element is located
+    /// - Returns: an `AnyPublisher` that holds the new `Element` and an `Error`
     public func put<Element: Codable>(_ element: Element, on route: URL) -> AnyPublisher<Element, Error> {
         var urlRequest = URLRequest(url: route, authorization: authorization)
         urlRequest.httpMethod = "PUT"
@@ -45,9 +45,9 @@ where Encoder.Output == Data, Decoder.Input == Data {
             .eraseToAnyPublisher()
     }
     
-    /// Performs a GET request on the specified `URL`
+    /// performs a GET request on the specified `URL`
     /// - Parameter route: the `URL` where the GET request gets the `Elements`
-    /// - Returns: An `AnyPublisher` that holds the returned array of `Elements` and an `Error`
+    /// - Returns: an `AnyPublisher` that holds the returned array of `Elements` and an `Error`
     public func get<Element: Codable>(on route: URL) -> AnyPublisher<[Element], Error> {
         var urlRequest = URLRequest(url: route, authorization: authorization)
         urlRequest.httpMethod = "GET"
@@ -61,11 +61,11 @@ where Encoder.Output == Data, Decoder.Input == Data {
     }
     
     
-    /// Performs a POST request on the specified `URL`
+    /// performs a POST request on the specified `URL`
     /// - Parameters:
     ///   - element: the new `Element` that is posted
     ///   - route: the `URL` for the new `Element`
-    /// - Returns: An `AnyPublisher` that holds the new `Element` and an `Error`
+    /// - Returns: an `AnyPublisher` that holds the new `Element` and an `Error`
     public func post<Element: Codable>(_ element: Element, on route: URL) -> AnyPublisher<Element, Error> {
         var urlRequest = URLRequest(url: route, authorization: authorization)
         urlRequest.httpMethod = "POST"
@@ -79,9 +79,9 @@ where Encoder.Output == Data, Decoder.Input == Data {
             .eraseToAnyPublisher()
     }
     
-    /// Performs a DELETE request on the specified `URL`
-    /// - Parameter route: the `URL`` where the removal happens
-    /// - Returns: An ``AnyPublisher` that holds a `Void` type and an `Error`
+    /// performs a DELETE request on the specified `URL`
+    /// - Parameter route: the `URL` where the removal happens
+    /// - Returns: an `AnyPublisher` that holds a `Void` type and an `Error`
     public func delete(at route: URL) -> AnyPublisher<Void, Error> {
         var urlRequest = URLRequest(url: route, authorization: authorization)
         urlRequest.httpMethod = "DELETE"
@@ -99,7 +99,7 @@ where Encoder.Output == Data, Decoder.Input == Data {
 
 /// The `URLSessionJSONNetworkHandler` is a specialized version of `URLSessionNetworkHandler` that uses JSON as encoding and decoding strategy.
 public class URLSessionJSONNetworkHandler: URLSessionNetworkHandler<JSONEncoder, JSONDecoder> {
-    /// Initializes a `URLSessionNetworkHandler` with a `JSONEncoder` and `JSONDecoder`
+    /// `init `initializes a `URLSessionNetworkHandler` with a `JSONEncoder` and `JSONDecoder`
     public init() {
         super.init(encoder: JSONEncoder(), decoder: JSONDecoder())
     }
