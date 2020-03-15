@@ -15,7 +15,7 @@ ELBRUS offers the options of filtering and sorting data on the client or on the 
 ELBRUS is available over the [Swift Package Manager](https://swift.org/package-manager/).
 
 ## Documentation
-A documentation about the public API is available [here]().
+A documentation about the public API is available [here](https://apodini.github.io/ELBRUS/).
 
 ## License
 ELBRUS is released under an [MIT License](https://opensource.org/licenses/MIT). 
