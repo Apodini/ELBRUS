@@ -11,19 +11,19 @@ import Combine
 import CodableKit
 
 // MARK: Typealiases
-/// defines an element that can be handled over a REST property wrapper
+/// defines an element that can be handled over a `REST` property wrapper
 public typealias RESTElement = Identifiable & Codable & Comparable & Hashable & Reflectable
-/// defines an element that can be filtered through a REST property wrapper
+/// defines an element that can be filtered with a `REST` property wrapper
 public typealias Filterable = Comparable & Reflectable & ReflectionDecodable & CustomStringConvertible & Codable
-/// defines an element that can be sorted through a REST property wrapper
+/// defines an element that can be sorted with a `REST` property wrapper
 public typealias Sortable = Comparable & Reflectable & ReflectionDecodable & CustomStringConvertible & Codable
 
 // MARK: - propertyWrapper @REST
-/// The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified server endpoint in the `Service` variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialization.
+/// The property wrapper is used for automatic observation of a connected data structure that is automatically synchronized with the specified RESTful service in the `Service` variable. Filtering, Sorting or Caching the data structure is optional and can be configured with the initialization.
 /// - Paramaters:
-///     - Element: specifies the type of the data structure that needs to be observed, it confirms to `RESTElement` which ensures that the data structure supports the needed functionality
-///     - F: specifies the type of the data structure where a filter is applied on,  it confirms to `Filterable` which ensures that the data structure supports the needed functionality
-///     - S: specifies the type of the data strucutre that will be sorted,  it confirms to `Sortable` which ensures that the data structure supports the needed functionality
+///     - Element: specifies the type of data structure that needs to be observed, it conforms to `RESTElement` which ensures that the data structure supports the needed functionality
+///     - F: specifies the type of data structure where a filter is applied on,  it conforms to `Filterable` which ensures that the data structure supports the needed functionality
+///     - S: specifies the type of data strucutre that will be sorted,  it conforms to `Sortable` which ensures that the data structure supports the needed functionality
 ///     - ID: specifies the type of the ID from the `Element`
 @propertyWrapper public class REST
     <Element: RESTElement,
@@ -58,7 +58,7 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     public var storagePath: String = ""
     
     // MARK: - init
-    /// `init` is used for the configuration of the wanted functionality, to specifiy the server endpoint with the network service and optional filtering, sorting and cahcing.
+    /// `init` is used for the configuration of the data synchronization, to specifiy the RESTful service address with the network service, optional filtering, sorting, and caching.
     public init(_ service: Service<N>,
                 filterStrategy: FilterStrategy<Element, F>,
                 sortStrategy: SortStrategy<Element, S>,
@@ -94,7 +94,7 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     }
     
     // MARK: - wrappedValue
-    /// The wrappedValue is the observed data structure and represents the connected data. This data will be synchronized with the server endpoint.
+    /// The wrappedValue is the observed data structure and represents the connected data. This data will be synchronized with the RESTful service.
     public var wrappedValue: [Element] {
         get { _wrappedValue }
         set {
