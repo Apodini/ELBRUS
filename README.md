@@ -6,7 +6,7 @@ ELBRUS offers the options of filtering and sorting data on the client or on the 
 
 ## Features
 
--  Synchronization Over A RESTful API
+- Synchronization Over A RESTful API
 - Filtering 
 - Sorting
 - Caching
