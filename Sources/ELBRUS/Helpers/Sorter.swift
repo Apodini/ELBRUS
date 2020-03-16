@@ -41,7 +41,9 @@ public enum SortStrategy<K, V> where K: RESTElement, V: Sortable {
         
         /// specifies the direction of sorting, ascending (`.asc`) or descending (`.desc`)
         public enum Direction {
+            /// denotes an ascending sort strategy
             case asc
+            /// denotes a descending sort strategy
             case desc
         }
         

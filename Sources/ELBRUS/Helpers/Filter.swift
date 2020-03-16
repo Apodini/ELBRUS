@@ -48,8 +48,11 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
         
         /// specifies the filter operation with the possible options of less equal (`.lte`), greater equal (`.gte`) and equal (`.exists`)
         public enum Operation<K, V> {
+            /// specifies less equal as element comparisation
             case lte(WritableKeyPath<K, V>, V)
+            /// specifies greater equal as element comparisation
             case gte(WritableKeyPath<K, V>, V)
+            /// specifies equal as element comparisation
             case exists(WritableKeyPath<K, V>, V)
             
             var description: String {

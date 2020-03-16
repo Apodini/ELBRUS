@@ -1,7 +1,7 @@
 # ELBRUS
 
-ELBRUS is a framework for data observation and the automatic data synchronization with a RESTful service. 
-ELBRUS offers the options of filtering and sorting data on the client or on the server-side. Furthermore, you have the possibility of caching.
+ELBRUS is a framework for data observation and automatic data synchronization with a RESTful service. 
+ELBRUS offers the options of filtering and sorting data on the client or the server-side. Furthermore, you have the possibility of caching.
 
 
 ## Features
