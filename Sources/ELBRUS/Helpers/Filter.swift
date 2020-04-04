@@ -27,7 +27,6 @@ import CodableKit
 ///    defines a filter strategy where a fictional account class is filtered for 1 <= ID <= 100
 /// - Attention: You can only define the operations array where all `KeyPaths` are from the same data type
  
- 
 
 public enum FilterStrategy <K: RESTElement, V: Filterable> {
     /// specifies that the filter process is realized through a server route; the user has the option to specify an own translation function in the case

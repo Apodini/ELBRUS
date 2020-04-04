@@ -95,7 +95,8 @@ public func defaultSortServerStrategy (_ operation: String, _ property: String) 
 
 // MARK: Extension: Collection: Sorting with a KeyPath
 extension Collection {
-    func sorted<Value: Comparable>(on property: KeyPath<Element, Value>, by areInIncreasingOrder: (Value, Value) -> Bool) -> [Element] {
+    func sorted<Value: Comparable>(on property: KeyPath<Element, Value>,
+                                   by areInIncreasingOrder: (Value, Value) -> Bool) -> [Element] {
         return sorted { currentElement, nextElement in
             areInIncreasingOrder(currentElement[keyPath: property], nextElement[keyPath: property])
         }

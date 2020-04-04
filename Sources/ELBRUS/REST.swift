@@ -69,7 +69,8 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
         self.sortStrategy = sortStrategy
         self.caching = caching
         
-        precondition(self.wrappedValue.isEmpty, "You can not initialize a @REST Property Wrapper with an initial non empty Array")
+        precondition(self.wrappedValue.isEmpty,
+                     "You can not initialize a @REST Property Wrapper with an initial non empty Array")
         
         switch filterStrategy {
         case .none:
@@ -165,7 +166,9 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
             switch change {
             case let .remove(_, oldElement, association):
                 if association == nil {
-                    cancelDelete = handleNetworkChangeAndSetLocalData(networkRequest: .delete, setterValue: setterValue, oldElement: oldElement)
+                    cancelDelete = handleNetworkChangeAndSetLocalData(networkRequest: .delete,
+                                                                      setterValue: setterValue,
+                                                                      oldElement: oldElement)
                 }
             case let .insert(_, newElement, association):
                 if association == nil {
@@ -178,7 +181,9 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
                             newElement: newElement,
                             oldElement: replaceArray.first)
                     } else {
-                        cancelPost = handleNetworkChangeAndSetLocalData(networkRequest: .post, setterValue: setterValue, newElement: newElement)
+                        cancelPost = handleNetworkChangeAndSetLocalData(networkRequest: .post,
+                                                                        setterValue: setterValue,
+                                                                        newElement: newElement)
                     }
                 }
             }
@@ -258,13 +263,16 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
         }
     }
     
-    //TODO: remove force unwrap
     private func internalDelete(_ element: Element) -> AnyCancellable {
+        guard let id = element.id else {
+            assertionFailure("Elements that are deleted should always have a valid `id`")
+            return AnyCancellable({})
+        }
+        
         return service.networkHandler
-            .delete(at: service.append(route: element.id!.description))
+            .delete(at: service.append(route: id.description))
             .replaceError(with: ())
-            .sink(receiveValue: { _ in
-            })
+            .sink(receiveValue: { _ in })
     }
 }
 
@@ -297,11 +305,11 @@ extension REST {
         case .client(let filter):
             for operation in filter.operations {
                 switch operation {
-                case let .gte((property, value)):
+                case let .gte(property, value):
                     _wrappedValue = _wrappedValue.filter({ $0[keyPath:property] >= value })
-                case let .lte((property, value)):
+                case let .lte(property, value):
                     _wrappedValue = _wrappedValue.filter({ $0[keyPath:property] <= value })
-                case let .exists((property, value)):
+                case let .exists(property, value):
                     _wrappedValue = _wrappedValue.filter({ $0[keyPath:property] == value })
                 }
             }
