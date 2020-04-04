@@ -1,5 +1,5 @@
-module: Project_Name
-author: Author Name
+module: ELBRUS
+author: Apodini
 min_acl: internal
 theme: fullwidth
 output: ./docs
