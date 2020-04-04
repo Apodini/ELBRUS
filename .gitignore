@@ -1,5 +1,8 @@
+# Swift Package Manager
+Package.resolved
+*.xcodeproj
+.swiftpm
+.build/
+
+# Swift Package Manager
 .DS_Store
-/.build
-/Packages
-/*.xcodeproj
-xcuserdata/
