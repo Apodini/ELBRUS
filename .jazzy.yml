@@ -1,0 +1,6 @@
+module: ELBRUS
+author: Apodini
+min_acl: internal
+theme: fullwidth
+output: ./docs
+documentation: ./*.md

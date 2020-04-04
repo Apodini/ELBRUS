@@ -61,7 +61,9 @@ extension LocalFileStorable {
         do {
             let data = try JSONEncoder().encode(collection)
             let jsonFileWrapper = FileWrapper(regularFileWithContents: data)
-            try jsonFileWrapper.write(to: localStorageURL, options: FileWrapper.WritingOptions.atomic, originalContentsURL: nil)
+            try jsonFileWrapper.write(to: localStorageURL,
+                                      options: FileWrapper.WritingOptions.atomic,
+                                      originalContentsURL: nil)
         } catch _ {
             print("Could not save \(Element.self)s")
         }

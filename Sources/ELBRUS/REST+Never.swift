@@ -9,9 +9,11 @@
 import Foundation
 import CodableKit
 
+
 // MARK: Extension: Never
 /// An extension to `Never` to enable an initialization of a property wrapper without a filter and/or sort strategy to not specifiy the generic types
 extension Never: Reflectable & ReflectionDecodable & LosslessStringConvertible & Codable {
+    // swiftlint:disable unavailable_function
     /// default method, fails directly if it is called
     public static func reflectDecoded() -> (Never, Never) {
         fatalError("Can not create an instance of Never")
@@ -36,6 +38,7 @@ extension Never: Reflectable & ReflectionDecodable & LosslessStringConvertible &
     public func encode(to encoder: Encoder) throws {
         fatalError("Can not create an instance of Never")
     }
+    // swiftlint:enable unavailable_function
 }
 
 extension REST where F == Never {
