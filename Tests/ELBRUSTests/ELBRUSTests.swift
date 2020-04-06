@@ -278,26 +278,6 @@ final class ELBRUSTests: XCTestCase {
         XCTAssert(rest.wrappedValue.last == Account(id: 2, name: "Max"))
         
     }
-    
-    // TODO: add all tests
-    static var allTests = [
-        ("test_doNothing_expectEmptyArray",
-         test_doNothing_expectEmptyArray),
-        ("test_addAnAccount_expectOnePostAndOneElementInArray",
-         test_addAnAccount_expectOnePostAndOneElementInArray),
-        ("test_assignOneAccountWithGivenID_expectPutAndChangedElementInArray", test_assignOneAccountWithGivenID_expectPutAndChangedElementInArray),
-        ("test_addAnAccountAndDeleteIt_expectDeleteAndEmptyArray",
-         test_addAnAccountAndDeleteIt_expectDeleteAndEmptyArray),
-        ("test_assignNewArrayWithSameElementsInDifferentOrder_expectNoMoreRequestsAfterAssign",
-         test_assignNewArrayWithSameElementsInDifferentOrder_expectNoMoreRequestsAfterAssign),
-        ("test_assignEditedElementAndInsertedElementSimultaneously",
-         test_assignEditedElementAndInsertedElementSimultaneously),
-        ("test_filterExistsWithNamesClientside_expectEmptyArray", test_filterExistsWithNamesClientside_expectEmptyArray),
-        ("testSortAscendingWithNamesClientside_expectSortedWrappedValue", test_sortAscendingWithNamesClientside_expectSortedWrappedValue),
-        ("test_sortDescendingWithNamesClientside_expectSortedWrappedValue", test_sortDescendingWithNamesClientside_expectSortedWrappedValue),
-        ("test_sortAscendingWithNamesServerside_expectCorrectURL", test_sortAscendingWithNamesServerside_expectCorrectURL),
-        ("test_sortDescendingWithNamesServerside_expectCorrectURL", test_sortDescendingWithNamesServerside_expectCorrectURL)
-    ]
 }
 
 extension String: Reflectable {}

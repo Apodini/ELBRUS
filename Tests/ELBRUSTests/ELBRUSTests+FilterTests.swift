@@ -240,7 +240,8 @@ extension ELBRUSTests {
             mockResult: .success([]))
         ]
         
-        let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")]), colonFilterServerStrategy))
+        let rest = REST(endpoint,
+                        filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")]), colonFilterServerStrategy))
         
         //When
         waitForExpectations(timeout: 0.1, handler: nil)
@@ -286,7 +287,9 @@ extension ELBRUSTests {
             mockResult: .success([]))
         ]
         
-        let rest = REST(endpointWithFilterStrategy, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")]), roundBracketsFilterServerStrategy))
+        let rest = REST(endpointWithFilterStrategy,
+                        filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")]),
+                                                                      roundBracketsFilterServerStrategy))
         
         //When
         waitForExpectations(timeout: 0.1, handler: nil)
@@ -307,4 +310,3 @@ public func colonFilterServerStrategy(_ property: String, _ operation: String, _
 public func roundBracketsFilterServerStrategy(_ property: String, _ operation: String, _ value: String) -> URLQueryItem {
     return URLQueryItem(name: "\(property)(\(operation))", value: "\(value)")
 }
-

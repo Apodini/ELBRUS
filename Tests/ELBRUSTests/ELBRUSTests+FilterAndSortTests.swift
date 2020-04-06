@@ -31,7 +31,9 @@ extension ELBRUSTests {
             mockResult: .success([]))
         ]
         
-        let rest = REST(endpoint, filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")])), sortStrategy: .server(SortStrategy.Sorter(direction: .asc, property: \Account.name)) )
+        let rest = REST(endpoint,
+                        filterStrategy: .server(FilterStrategy.Filter(operations: [.exists(\Account.name, "Paul")])),
+                        sortStrategy: .server(SortStrategy.Sorter(direction: .asc, property: \Account.name)) )
         
         //When
         waitForExpectations(timeout: 0.1, handler: nil)
@@ -65,7 +67,8 @@ extension ELBRUSTests {
         
         let rest = REST(endpoint,
                         filterStrategy:
-            .client(FilterStrategy.Filter(operations: [.lte(\Account.id!, 2), .gte(\Account.id!, 1)])), sortStrategy: .client(SortStrategy.Sorter(direction: .asc, property: \Account.name)))
+            .client(FilterStrategy.Filter(operations: [.lte(\Account.id!, 2), .gte(\Account.id!, 1)])),
+                        sortStrategy: .client(SortStrategy.Sorter(direction: .asc, property: \Account.name)))
         
         rest.wrappedValue.append(Account(id: nil, name: "Tom"))
         rest.wrappedValue.append(Account(id: nil, name: "Max"))

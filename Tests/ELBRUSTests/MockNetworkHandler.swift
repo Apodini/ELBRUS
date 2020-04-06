@@ -44,7 +44,10 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
         switch nextMockNetworkCall([E].self) {
         case .success(.get(route, let expectation, let result)):
             expectation.fulfill()
-            return result as! AnyPublisher<[E], Error>
+            guard let result = result as? AnyPublisher<[E], Error> else {
+                fatalError("Could not cast the nextMockNetworkCall result to an AnyPublisher<[\(E.self)], Error>")
+            }
+            return result
         case let .failure(fail):
             return fail.eraseToAnyPublisher()
         default:
@@ -57,7 +60,10 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
         switch nextMockNetworkCall(E.self) {
         case .success(.post(route, element as? Element, let expectation, let result)):
             expectation.fulfill()
-            return result as! AnyPublisher<E, Error>
+            guard let result = result as? AnyPublisher<E, Error> else {
+                fatalError("Could not cast the nextMockNetworkCall result to an AnyPublisher<\(E.self), Error>")
+            }
+            return result
         case let .failure(fail):
             return fail.eraseToAnyPublisher()
         default:
@@ -70,7 +76,10 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
         switch nextMockNetworkCall(E.self) {
         case .success(.put(route, element as? Element, let expectation, let result)):
             expectation.fulfill()
-            return result as! AnyPublisher<E, Error>
+            guard let result = result as? AnyPublisher<E, Error> else {
+                fatalError("Could not cast the nextMockNetworkCall result to an AnyPublisher<\(E.self), Error>")
+            }
+            return result
         case let .failure(fail):
             return fail.eraseToAnyPublisher()
         default:

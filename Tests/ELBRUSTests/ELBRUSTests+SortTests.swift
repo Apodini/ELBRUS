@@ -232,5 +232,3 @@ public func roundBracketsSortServerStrategy (_ operation: String, _ property: St
         return URLQueryItem(name: "sort_by", value: "desc(\(property))")
     }
 }
-
-
