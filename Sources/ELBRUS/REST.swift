@@ -31,8 +31,6 @@ public typealias Sortable = Comparable & Reflectable & ReflectionDecodable & Cus
     F: Filterable,
     S: Sortable,
 ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
-    
-    
     private var cancelGet: AnyCancellable?
     private var cancelPost: AnyCancellable?
     private var cancelPut: AnyCancellable?
@@ -135,7 +133,7 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     ///    - old: Defines the old array
     /// - Returns: A CollectionDiffernence bbject with the corresponding differnce.
     private func calculateDifference(new: [Element], old: [Element]) -> CollectionDifference<Element> {
-        return new.difference(from: old).inferringMoves()
+        new.difference(from: old).inferringMoves()
     }
     
     
@@ -202,7 +200,6 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
         setterValue: [Element] = [],
         newElement: Element? = nil,
         oldElement: Element? = nil) -> AnyCancellable? {
-        
         var cancelRequest: AnyCancellable?
         
         switch networkRequest {
@@ -236,14 +233,14 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     // MARK: - Already configured network requests to perform the change on the service
     
     private func internalGet() -> AnyCancellable {
-        return service.networkHandler.get(on: service.urlComponents.url ?? service.url)
+        service.networkHandler.get(on: service.urlComponents.url ?? service.url)
             .receive(on: RunLoop.main)
             .replaceError(with: [])
             .assign(to: \._wrappedValue, on: self)
     }
     
     private func internalPost(_ element: Element) -> AnyCancellable {
-        return service.networkHandler
+        service.networkHandler
             .post(element, on: service.url)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { response in
@@ -266,23 +263,21 @@ ID: CustomStringConvertible >: LocalFileStorable where Element.ID == ID? {
     private func internalDelete(_ element: Element) -> AnyCancellable {
         guard let id = element.id else {
             assertionFailure("Elements that are deleted should always have a valid `id`")
-            return AnyCancellable({})
+            return AnyCancellable { }
         }
         
         return service.networkHandler
             .delete(at: service.append(route: id.description))
-            .replaceError(with: ())
-            .sink(receiveValue: { _ in })
+            .replaceError(with: Void())
+            .sink { _ in }
     }
 }
 
 
 // MARK: Extension: REST: filtering
 extension REST {
-    
     /// Either appends queries to the Service URL or performs filtering local
     private func filter() {
-        
         switch filterStrategy {
         case .none:
             break
@@ -319,7 +314,6 @@ extension REST {
 
 // MARK: Extension: REST: sorting
 extension REST {
-    
     /// Either appends queries to the Service URL or performs sorting local
     private func sort() {
         switch sortStrategy {

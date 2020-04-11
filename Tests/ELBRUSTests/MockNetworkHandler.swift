@@ -14,6 +14,7 @@ import Combine
 // MARK: - TestEncoder
 class TestEncoder: TopLevelEncoder {
     func encode<Element>(_ value: Element) throws -> Data where Element: Encodable {
+        // swiftlint:disable:previous unavailable_function
         fatalError("Unexpected Call to `encode` in `TestEncoder`")
     }
 }
@@ -21,6 +22,7 @@ class TestEncoder: TopLevelEncoder {
 // MARK: - TestDecoder
 class TestDecoder: TopLevelDecoder {
     func decode<Element>(_ type: Element.Type, from: Data) throws -> Element where Element: Decodable {
+        // swiftlint:disable:previous unavailable_function
         fatalError("Unexpected Call to `decode` in `TestDecoder`")
     }
 }
@@ -42,7 +44,7 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
     
     func get<E: Codable>(on route: URL) -> AnyPublisher<[E], Error> {
         switch nextMockNetworkCall([E].self) {
-        case .success(.get(route, let expectation, let result)):
+        case .success(.get(route, let expectation, let result)): // swiftlint:disable:this pattern_matching_keywords
             expectation.fulfill()
             guard let result = result as? AnyPublisher<[E], Error> else {
                 fatalError("Could not cast the nextMockNetworkCall result to an AnyPublisher<[\(E.self)], Error>")
@@ -58,7 +60,7 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
     
     func post<E: Codable>(_ element: E, on route: URL) -> AnyPublisher<E, Error> {
         switch nextMockNetworkCall(E.self) {
-        case .success(.post(route, element as? Element, let expectation, let result)):
+        case .success(.post(route, element as? Element, let expectation, let result)): // swiftlint:disable:this pattern_matching_keywords
             expectation.fulfill()
             guard let result = result as? AnyPublisher<E, Error> else {
                 fatalError("Could not cast the nextMockNetworkCall result to an AnyPublisher<\(E.self), Error>")
@@ -74,7 +76,7 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
     
     func put<E: Codable>(_ element: E, on route: URL) -> AnyPublisher<E, Error> {
         switch nextMockNetworkCall(E.self) {
-        case .success(.put(route, element as? Element, let expectation, let result)):
+        case .success(.put(route, element as? Element, let expectation, let result)): // swiftlint:disable:this pattern_matching_keywords
             expectation.fulfill()
             guard let result = result as? AnyPublisher<E, Error> else {
                 fatalError("Could not cast the nextMockNetworkCall result to an AnyPublisher<\(E.self), Error>")
@@ -90,7 +92,7 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
     
     func delete(at route: URL) -> AnyPublisher<Void, Error> {
         switch nextMockNetworkCall(Void.self) {
-        case .success(.delete(route, let expectation, let result)):
+        case .success(.delete(route, let expectation, let result)): // swiftlint:disable:this pattern_matching_keywords
             expectation.fulfill()
             return result
         case let .failure(fail):
@@ -99,7 +101,6 @@ class MockNetworkHandler<Element: RESTElement>: NetworkHandler {
             print(route.absoluteString)
             return noMatchingMockNetworkCall(Void.self)
         }
-        
     }
     
     private func nextMockNetworkCall<T>(_ type: T.Type) -> Result<MockNetworkCall<Element>, Fail<T, Error>> {

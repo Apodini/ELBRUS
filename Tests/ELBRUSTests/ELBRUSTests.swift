@@ -14,58 +14,57 @@ import CodableKit
 // MARK: - Account
 /// Represents a single account that consists of a set of transactions.
 struct Account: RESTElement {
-    // MARK: Stored Properties
-    public var id: Int?
-    public var name: String
+    static func < (lhs: Account, rhs: Account) -> Bool {
+        lhs.name < rhs.name
+    }
     
-    // MARK: Initializers
-    public init(id: Account.ID = nil, name: String) {
+    
+    var id: Int?
+    var name: String
+    
+    
+    init(id: Account.ID = nil, name: String) {
         self.id = id
         self.name = name
     }
     
-    public func hash(into hasher: inout Hasher) {
+    
+    func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    public static func < (lhs: Account, rhs: Account) -> Bool {
-        return lhs.name < rhs.name
-    }
-    
-    public var description: String {
-        return "id: \(String(describing: id)), name: \(name)"
+    var description: String {
+        "id: \(String(describing: id)), name: \(name)"
     }
 }
 
 // MARK: - ELBRUSTests
 final class ELBRUSTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        endpoint.networkHandler.mockNetworkCalls = []
-        super.tearDown()
-    }
-    
     let endpoint: Service<MockNetworkHandler<Account>> = {
         let networkHandler = MockNetworkHandler<Account>(mockNetworkCalls: [])
-        return Service(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+        return Service(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                        networkHandler: networkHandler)
     }()
     
     let endpointWithFilterStrategy: Service<MockNetworkHandler<Account>> = {
         let networkHandler = MockNetworkHandler<Account>(mockNetworkCalls: [])
-        return Service(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
-                       networkHandler: networkHandler, filterServerStrategy: colonFilterServerStrategy)
+        return Service(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
+                       networkHandler: networkHandler,
+                       filterServerStrategy: colonFilterServerStrategy)
     }()
     
     let endpointWithSortStrategy: Service<MockNetworkHandler<Account>> = {
         let networkHandler = MockNetworkHandler<Account>(mockNetworkCalls: [])
-        return Service(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
-                       networkHandler: networkHandler, sortServerStrategy: dotSortServerStrategy)
+        return Service(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
+                       networkHandler: networkHandler,
+                       sortServerStrategy: dotSortServerStrategy)
     }()
+    
+    
+    override func tearDown() {
+        endpoint.networkHandler.mockNetworkCalls = []
+        super.tearDown()
+    }
     
     // MARK: - simple network requests
     
@@ -75,7 +74,7 @@ final class ELBRUSTests: XCTestCase {
     func test_doNothing_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([]))
         ]
@@ -95,10 +94,10 @@ final class ELBRUSTests: XCTestCase {
     func test_addAnAccount_expectOnePostAndOneElementInArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom")))
@@ -121,14 +120,14 @@ final class ELBRUSTests: XCTestCase {
     func test_assignOneAccountWithGivenID_expectPutAndChangedElementInArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .put(url: URL(string: "test.schmiedmayer.com/api/accounts/1")!,
+            .put(url: URL(unsafe: "test.schmiedmayer.com/api/accounts/1"),
                  element: Account(id: 1, name: "Paul"),
                  expectation: expectation(description: "changed Tom's account to Paul's account"),
                  mockResult: .success(Account(id: 1, name: "Paul")))
@@ -151,14 +150,14 @@ final class ELBRUSTests: XCTestCase {
     func test_appendOneAccountWithGivenID_expectPutAndChangedElementInArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .put(url: URL(string: "test.schmiedmayer.com/api/accounts/1")!,
+            .put(url: URL(unsafe: "test.schmiedmayer.com/api/accounts/1"),
                  element: Account(id: 1, name: "Paul"),
                  expectation: expectation(description: "changed Tom's account to Paul's account"),
                  mockResult: .success(Account(id: 1, name: "Paul")))
@@ -181,14 +180,14 @@ final class ELBRUSTests: XCTestCase {
     func test_addAnAccountAndDeleteIt_expectDeleteAndEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .delete(url: URL(string: "test.schmiedmayer.com/api/accounts/1")!,
+            .delete(url: URL(unsafe: "test.schmiedmayer.com/api/accounts/1"),
                     expectation: expectation(description: "account with ID 1 is deleted"),
                     mockResult: .success(Void()))
         ]
@@ -212,18 +211,18 @@ final class ELBRUSTests: XCTestCase {
     func test_assignNewArrayWithSameElementsInDifferentOrder_expectNoMoreRequestsAfterAssign() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Max"),
                   expectation: expectation(description: "Max's account with ID 2"),
                   mockResult: .success(Account(id: 2, name: "Max"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Paul"),
                   expectation: expectation(description: "Paul's account with ID 3"),
                   mockResult: .success(Account(id: 3, name: "Paul")))
@@ -248,18 +247,18 @@ final class ELBRUSTests: XCTestCase {
     func test_assignEditedElementAndInsertedElementSimultaneously() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .put(url: URL(string: "test.schmiedmayer.com/api/accounts/1")!,
+            .put(url: URL(unsafe: "test.schmiedmayer.com/api/accounts/1"),
                  element: Account(id: 1, name: "Tommy"),
                  expectation: expectation(description: "changed Tom's account to Tommy's account"),
                  mockResult: .success(Account(id: 1, name: "Tommy"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Max"),
                   expectation: expectation(description: "Max's account with ID 4"),
                   mockResult: .success(Account(id: 2, name: "Max")))
@@ -276,7 +275,6 @@ final class ELBRUSTests: XCTestCase {
         //Then
         XCTAssert(rest.wrappedValue.first == Account(id: 1, name: "Tommy"))
         XCTAssert(rest.wrappedValue.last == Account(id: 2, name: "Max"))
-        
     }
 }
 

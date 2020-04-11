@@ -1,10 +1,8 @@
-# SwiftLint file LS1 TUM
-# Created by Paul Schmiedmayer on 08/16/18.
-# Copyright © 2020 Paul Schmiedmayer. All rights reserved.
+# Apodini SwiftLint file Apodini
   
 # The whitelist_rules configuration also includes rules that are enabled by default to provide a good overview of all rules.
 whitelist_rules:
-  - anyobject_protocol:
+  - anyobject_protocol
     # Prefer using AnyObject over class for class-only protocols.
   - array_init
     # Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
@@ -81,8 +79,6 @@ whitelist_rules:
   - file_length
     # Files should not span too many lines.
     # See file_length below for the exact configuration.
-  - file_types_order
-    # Specifies how the types within a file should be ordered.
   - first_where
     # Prefer using ``.first(where:)`` over ``.filter { }.first` in collections.
   - flatmap_over_map_reduce
@@ -115,8 +111,6 @@ whitelist_rules:
     # Prefer implicit returns in closures.
   - implicitly_unwrapped_optional
     # Implicitly unwrapped optionals should be avoided when possible.
-  - indentation_width
-    # Indent code using either one tab or the configured amount of spaces, unindent to match previous indentations. Don’t indent the first line.
   - inert_defer
     # If defer is at the end of its parent scope, it will be executed right where it is anyway.
   - is_disjoint
@@ -319,11 +313,6 @@ whitelist_rules:
   - yoda_condition
     # The variable should be placed on the left, the constant on the right of a comparison operator.
 
-# These rules still get triggered even though they are not in the whitelist_rules
-disabled_rules:
-  - multiple_closures_with_trailing_closure
-    # Trailing closure syntax should not be used when passing more than one closure argument.
-
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
   - Pods
@@ -332,8 +321,8 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - R.generated.swift
 
 closure_body_length: # Closure bodies should not span too many lines.
-  - 25 # warning - default: 20
-  - 25 # error - default: 100
+  - 35 # warning - default: 20
+  - 35 # error - default: 100
 
 enum_case_associated_values_count: # Number of associated values in an enum case should be low
   - 5 # warning - default: 5
@@ -374,6 +363,9 @@ nesting: # Types should be nested at most 2 level deep, and statements should be
     warning: 2 # warning - default: 1
   statement_level:
     warning: 5 # warning - default: 5
+    
+trailing_closure:
+  only_single_muted_parameter: true
 
 type_body_length: # Type bodies should not span too many lines.
   - 250 # warning - default: 200
@@ -386,6 +378,9 @@ type_name:
 trailing_whitespace:
   ignores_empty_lines: true # default: false
   ignores_comments: true # default: false
+  
+unused_optional_binding:
+  ignore_optional_try: true
 
 vertical_whitespace: # Limit vertical whitespace to a single empty line.
   max_empty_lines: 2 # warning - default: 1

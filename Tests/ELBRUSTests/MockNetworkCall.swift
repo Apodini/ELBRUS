@@ -15,7 +15,6 @@ struct XCTFailError: Error {}
 
 // MARK: - MockNetworkCall
 enum MockNetworkCall<Element: Codable> {
-    
     case get(url: URL, expectation: XCTestExpectation, mockResult: AnyPublisher<[Element], Error>)
     case put(url: URL, element: Element, expectation: XCTestExpectation, mockResult: AnyPublisher<Element, Error>)
     case post(url: URL, element: Element, expectation: XCTestExpectation, mockResult: AnyPublisher<Element, Error>)
@@ -26,25 +25,25 @@ enum MockNetworkCall<Element: Codable> {
     }
     
     static func get<Element>(url: URL, expectation: XCTestExpectation, mockResult: Result<[Element], Error>) -> MockNetworkCall<Element> {
-        return .get(url: url, expectation: expectation, mockResult: publisher(from: mockResult))
+        .get(url: url, expectation: expectation, mockResult: publisher(from: mockResult))
     }
     
     static func put<Element>(url: URL,
                              element: Element,
                              expectation: XCTestExpectation,
                              mockResult: Result<Element, Error>) -> MockNetworkCall<Element> {
-        return .put(url: url, element: element, expectation: expectation, mockResult: publisher(from: mockResult))
+        .put(url: url, element: element, expectation: expectation, mockResult: publisher(from: mockResult))
     }
     
     static func post<Element>(url: URL,
                               element: Element,
                               expectation: XCTestExpectation,
                               mockResult: Result<Element, Error>) -> MockNetworkCall<Element> {
-        return .post(url: url, element: element, expectation: expectation, mockResult: publisher(from: mockResult))
+        .post(url: url, element: element, expectation: expectation, mockResult: publisher(from: mockResult))
     }
     
     static func delete (url: URL, expectation: XCTestExpectation, mockResult: Result<Void, Error>) -> MockNetworkCall<Element> {
-        return .delete(url: url, expectation: expectation, mockResult: publisher(from: mockResult))
+        .delete(url: url, expectation: expectation, mockResult: publisher(from: mockResult))
     }
     
     private static func publisher<Output>(from result: Result<Output, Error>) -> AnyPublisher<Output, Error> {

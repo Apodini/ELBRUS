@@ -13,7 +13,6 @@ import Combine
 /// `URLSessionNetworkHandler` conforms to the `NetworkHandler` protocol and represents an implementation of the different network requests
 public class URLSessionNetworkHandler<Encoder: TopLevelEncoder, Decoder: TopLevelDecoder>: NetworkHandler
 where Encoder.Output == Data, Decoder.Input == Data {
-    
     /// specifies the encoding strategy
     public let encoder: Encoder
     /// specifies the decoding strategy
@@ -87,11 +86,11 @@ where Encoder.Output == Data, Decoder.Input == Data {
         urlRequest.httpMethod = "DELETE"
         
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
-            .tryMap({ _, response in
+            .tryMap { _, response in
                 guard let response = response as? HTTPURLResponse, 200..<299 ~= response.statusCode else {
                     throw URLError(.unknown)
                 }
-            })
+            }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

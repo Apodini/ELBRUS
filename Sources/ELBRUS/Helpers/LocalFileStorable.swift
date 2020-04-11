@@ -23,7 +23,6 @@ public protocol LocalFileStorable {
 
 // MARK: Extension: LocalFileStorable: URL
 extension LocalFileStorable {
-    
     /// `URL` of the parent folder to store the variable in
     public var localStorageURL: URL {
         guard let documentsDirectory = FileManager().urls(for: .cachesDirectory, in: .userDomainMask).first else {
@@ -36,8 +35,6 @@ extension LocalFileStorable {
 
 // MARK: Extension: LocalFileStorable: Load & Save
 extension LocalFileStorable {
-    
-    
     ///  Load an array of `LocalFileStorables` from a file
     /// - Returns: an array of decoded objects
     public func loadFromFile() -> [Element] {

@@ -11,7 +11,6 @@ import CodableKit
 @testable import ELBRUS
 
 extension ELBRUSTests {
-    
     // MARK: - Filter + Sort
     
     /**
@@ -20,13 +19,13 @@ extension ELBRUSTests {
     func test_filterAndSort_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[exists]=Paul"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[exists]=Paul&sort_by=+name"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -48,18 +47,18 @@ extension ELBRUSTests {
     func test_filterGteAndLteWithIDClientsideAndSortAsc_expectSortedArrayWithIDsInRange() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Max"),
                   expectation: expectation(description: "Max's account with ID 2"),
                   mockResult: .success(Account(id: 2, name: "Max"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Paul"),
                   expectation: expectation(description: "Paul's account with ID 3"),
                   mockResult: .success(Account(id: 3, name: "Paul")))
@@ -82,6 +81,4 @@ extension ELBRUSTests {
         XCTAssert(rest.wrappedValue.count == 2)
         XCTAssert(rest.wrappedValue.first == Account(id: 2, name: "Max"))
     }
-    
-    
 }

@@ -20,10 +20,10 @@ extension ELBRUSTests {
     func test_filterExistsWithNamesClientside_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom")))
@@ -45,10 +45,10 @@ extension ELBRUSTests {
     func test_filterLteWithNamesClientside_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom")))
@@ -70,10 +70,10 @@ extension ELBRUSTests {
     func test_filterGteWithNamesClientside_expectArrayWithOneElement() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom")))
@@ -95,18 +95,18 @@ extension ELBRUSTests {
     func test_filterGteAndLteWithIDClientside_expectArrayWithIDsInRange() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Max"),
                   expectation: expectation(description: "Max's account with ID 2"),
                   mockResult: .success(Account(id: 2, name: "Max"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Paul"),
                   expectation: expectation(description: "Paul's account with ID 3"),
                   mockResult: .success(Account(id: 3, name: "Paul")))
@@ -136,10 +136,10 @@ extension ELBRUSTests {
     func test_filterExistsWithNamesServerside_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[exists]=Paul"),
                  expectation: expectation(description: "empty array"),
                 mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[exists]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[exists]=Paul"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -159,10 +159,10 @@ extension ELBRUSTests {
     func test_filterLteWithNamesServerside_expectEmptyArray() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[lte]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[lte]=Paul"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[lte]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[lte]=Paul"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -182,10 +182,10 @@ extension ELBRUSTests {
     func test_filterGteWithNamesServerside_expectArrayWithOneElement() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[gte]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[gte]=Paul"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name[gte]=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name[gte]=Paul"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -205,17 +205,20 @@ extension ELBRUSTests {
     func test_filterGteAndLteWithIDServerside_expectArrayWithIDsInRange() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?id[lte]=2&id[gte]=1")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?id[lte]=2&id[gte]=1"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?id[lte]=2&id[gte]=1")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?id[lte]=2&id[gte]=1"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
         
         let rest = REST(endpoint,
                         filterStrategy:
-            .server(FilterStrategy.Filter(operations: [.lte(\Account.id!, 2), .gte(\Account.id!, 1)])))
+            .server(FilterStrategy.Filter(operations: [
+                .lte(\Account.id!, 2),
+                .gte(\Account.id!, 1)
+            ])))
         
         //When
         waitForExpectations(timeout: 0.1, handler: nil)
@@ -232,10 +235,10 @@ extension ELBRUSTests {
     func test_filterWithFilterStrategy_expectFilterStrategyHasPriority() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name=exists:Paul"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name=exists:Paul"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -256,10 +259,10 @@ extension ELBRUSTests {
     func test_filterWithEndPointStrategy_expectEndpointFilterStrategyHasPriority() {
         //Given
         endpointWithFilterStrategy.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name=exists:Paul"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name=exists:Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name=exists:Paul"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -279,10 +282,10 @@ extension ELBRUSTests {
     func test_filterWithFilterStrategyAndEndpointStrategy_expectFilterStrategyHasPriority() {
         //Given
         endpointWithFilterStrategy.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name(exists)=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name(exists)=Paul"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?name(exists)=Paul")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?name(exists)=Paul"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -297,16 +300,14 @@ extension ELBRUSTests {
         //Then
         XCTAssert(rest.wrappedValue.isEmpty)
     }
-    
-    
 }
 
 // MARK: - other filter strategies
 
-public func colonFilterServerStrategy(_ property: String, _ operation: String, _ value: String) -> URLQueryItem {
-    return URLQueryItem(name: "\(property)", value: "\(operation):\(value)")
+func colonFilterServerStrategy(_ property: String, _ operation: String, _ value: String) -> URLQueryItem {
+    URLQueryItem(name: "\(property)", value: "\(operation):\(value)")
 }
 
-public func roundBracketsFilterServerStrategy(_ property: String, _ operation: String, _ value: String) -> URLQueryItem {
-    return URLQueryItem(name: "\(property)(\(operation))", value: "\(value)")
+func roundBracketsFilterServerStrategy(_ property: String, _ operation: String, _ value: String) -> URLQueryItem {
+    URLQueryItem(name: "\(property)(\(operation))", value: "\(value)")
 }

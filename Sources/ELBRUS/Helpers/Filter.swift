@@ -103,5 +103,5 @@ public enum FilterStrategy <K: RESTElement, V: Filterable> {
 ///   - value: the value that is used to check if the property fulfills the criteria
 /// - Returns: an `URLQueryItem` that represents a single filter from the default configuration
 public func defaultFilterServerStrategy(_ property: String, _ operation: String, _ value: String) -> URLQueryItem {
-    return URLQueryItem(name: "\(property)[\(operation)]", value: "\(value)")
+    URLQueryItem(name: "\(property)[\(operation)]", value: "\(value)")
 }

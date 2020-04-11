@@ -11,7 +11,6 @@ import CodableKit
 @testable import ELBRUS
 
 extension ELBRUSTests {
-    
     // MARK: - Sort Test
     
     /**
@@ -20,18 +19,18 @@ extension ELBRUSTests {
     func test_sortAscendingWithNamesClientside_expectSortedWrappedValue() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Max"),
                   expectation: expectation(description: "Max's account with ID 2"),
                   mockResult: .success(Account(id: 2, name: "Max"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Paul"),
                   expectation: expectation(description: "Paul's account with ID 3"),
                   mockResult: .success(Account(id: 3, name: "Paul")))
@@ -57,18 +56,18 @@ extension ELBRUSTests {
     func test_sortDescendingWithNamesClientside_expectSortedWrappedValue() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Tom"),
                   expectation: expectation(description: "Tom's account with ID 1"),
                   mockResult: .success(Account(id: 1, name: "Tom"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Max"),
                   expectation: expectation(description: "Max's account with ID 2"),
                   mockResult: .success(Account(id: 2, name: "Max"))),
-            .post(url: URL(string: "test.schmiedmayer.com/api/accounts")!,
+            .post(url: URL(unsafe: "test.schmiedmayer.com/api/accounts"),
                   element: Account(id: nil, name: "Paul"),
                   expectation: expectation(description: "Paul's account with ID 3"),
                   mockResult: .success(Account(id: 3, name: "Paul")))
@@ -94,10 +93,10 @@ extension ELBRUSTests {
     func test_sortAscendingWithNamesServerside_expectCorrectURL() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=+name")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=+name"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=+name")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=+name"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -118,13 +117,12 @@ extension ELBRUSTests {
     func test_sortDescendingWithNamesServerside_expectCorrectURL() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=-name")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=-name"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=-name")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=-name"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
-            
         ]
         
         let rest = REST(endpoint,
@@ -145,10 +143,10 @@ extension ELBRUSTests {
     func test_sortWithSortStrategy_expectSortStrategyhasPriority() {
         //Given
         endpoint.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=name.asc"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=name.asc"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -169,10 +167,10 @@ extension ELBRUSTests {
     func test_sortWithEndpointStrategy_expectSortStrategyhasPriority() {
         //Given
         endpointWithSortStrategy.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=name.asc"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=name.asc")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=name.asc"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -193,10 +191,10 @@ extension ELBRUSTests {
     func test_sortWithSortStrategyAndEndpointStrategy_expectSortStrategyhasPriority() {
         //Given
         endpointWithSortStrategy.networkHandler.mockNetworkCalls = [
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=asc(name)")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=asc(name)"),
                  expectation: expectation(description: "empty array"),
                  mockResult: .success([])),
-            .get(url: URL(string: "test.schmiedmayer.com/api/accounts?sort_by=asc(name)")!,
+            .get(url: URL(unsafe: "test.schmiedmayer.com/api/accounts?sort_by=asc(name)"),
             expectation: expectation(description: "empty array"),
             mockResult: .success([]))
         ]
@@ -210,14 +208,12 @@ extension ELBRUSTests {
         //Then
         XCTAssert(rest.wrappedValue.isEmpty)
     }
-    
-    
 }
 
 
 // MARK: - other filter strategies
 
-public func dotSortServerStrategy (_ operation: String, _ property: String) -> URLQueryItem {
+func dotSortServerStrategy (_ operation: String, _ property: String) -> URLQueryItem {
     if operation == "asc" {
         return URLQueryItem(name: "sort_by", value: "\(property).asc")
     } else {
@@ -225,7 +221,7 @@ public func dotSortServerStrategy (_ operation: String, _ property: String) -> U
     }
 }
 
-public func roundBracketsSortServerStrategy (_ operation: String, _ property: String) -> URLQueryItem {
+func roundBracketsSortServerStrategy (_ operation: String, _ property: String) -> URLQueryItem {
     if operation == "asc" {
         return URLQueryItem(name: "sort_by", value: "asc(\(property))")
     } else {
