@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 import PackageDescription
 
 let package = Package(
@@ -10,10 +10,22 @@ let package = Package(
         .library(name: "ELBRUS", targets: ["ELBRUS"])
     ],
     dependencies: [
-         .package(url: "https://github.com/vapor/codable-kit.git", .branch("master"))
+        .package(name: "codable-kit",
+                 url: "https://github.com/vapor/codable-kit.git",
+                 .branch("master"))
     ],
     targets: [
-        .target(name: "ELBRUS", dependencies: ["CodableKit"]),
-        .testTarget(name: "ELBRUSTests", dependencies: ["ELBRUS"])
+        .target(
+            name: "ELBRUS",
+            dependencies: [
+                .product(name: "CodableKit", package: "codable-kit")
+            ]
+        ),
+        .testTarget(
+            name: "ELBRUSTests",
+            dependencies: [
+                .target(name: "ELBRUS")
+            ]
+        )
     ]
 )
